@@ -1,5 +1,6 @@
 # 스플렌더
 
+![표지](https://user-images.githubusercontent.com/74187674/100521233-9e6ac000-31e5-11eb-85af-9011de7c833b.jpg)
 ![스플랜더 사진](https://user-images.githubusercontent.com/74187674/100520886-b5a8ae00-31e3-11eb-9006-88506ef9ab33.jpg)
 
 ## 1. 개요📖
