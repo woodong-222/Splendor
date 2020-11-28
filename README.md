@@ -36,3 +36,5 @@
 - 보석 토큰 지출하기 함수 ( void spend_money() )
 - 귀족 카드 관리 함수( void manage_char() )
 - 필드에 새로운 개발 카드를 세팅하는 함수 ( void setting_card() )
+
+아직 함수의 자료형은 확정 아님 상황에 따라 void, int, char 등 필요한 자료형으로 변경
