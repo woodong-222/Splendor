@@ -103,6 +103,25 @@ int main()
       필드에 새로운 카드를 세팅하는 함수 ( void setting_card() )
       
     }
+        else if(찜하기를 했다면)
+   
+    {
+   
+      _getch를 통해 찜할 개발 카드 선택
+      
+      찜하기 함수 ( void reservation() )
+      
+      if (황금보석 토큰이 있다면)
+      
+      {
+      
+        황금보석 토큰 변수 += 1
+        
+       }
+
+      플레이어의 카드보석 변수 += 1
+      
+    }
    
 
     if(한 플레이어가 15점을 넘겼다면)
@@ -118,3 +137,7 @@ int main()
   return 0;
 
 }
+
+## 6. 순서도
+
+![순서도](https://user-images.githubusercontent.com/74187674/100522239-9cf0c600-31ec-11eb-9bca-29bfae2ad9a7.png)
