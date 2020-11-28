@@ -138,6 +138,6 @@ int main()
 
 }
 
-## 6. 순서도
+## 6. 순서도📝
 
 ![순서도](https://user-images.githubusercontent.com/74187674/100522239-9cf0c600-31ec-11eb-9bca-29bfae2ad9a7.png)
