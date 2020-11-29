@@ -66,4 +66,4 @@ int main(void)
    Player player[4] = { 0 };
 
    return 0;
-}
+} 
