@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
+#include <stdlib.h>
+#include <time.h>
 #include "Header.h"
 
 #define WHITE 7
@@ -21,19 +23,172 @@ Player player[4] = { 0 };
 
 int main(void)
 {
-	/*
-	while (1)
+	int nob_card[10], i, temp, x, y, dev_card1[40], dev_card2[30], dev_card3[20];
+
+	srand((unsigned int)time(NULL));
+
+	//Áßº¹¾ø´Â ±ÍÁ· Ä«µå
+	for (i = 0; i < 10; i++) nob_card[i] = i;
+	for (i = 0; i < 30; i++)
 	{
-		system("cls");
-		*/
-	boardpan();
-	current_player = 0;
-	/*/
-}
-*/
+		x = rand() % 10;
+		y = rand() % 10;
+
+		if (x != y) {
+			temp = nob_card[x];
+			nob_card[x] = nob_card[y];
+			nob_card[y] = temp;
+		}
+	}
+
+	 //Áßº¹¾ø´Â °³¹ß Ä«µå1
+	for (i = 0; i < 40; i++) dev_card1[i] = i;
+	for (i = 0; i < 100; i++)
+	{
+		x = rand() % 40;
+		y = rand() % 40;
+
+		if (x != y) {
+			temp = dev_card1[x];
+			dev_card1[x] = dev_card1[y];
+			dev_card1[y] = temp;
+		}
+	}
+
+	//Áßº¹¾ø´Â °³¹ß Ä«µå2
+	for (i = 0; i < 30; i++) dev_card2[i] = i;
+	for (i = 0; i < 70; i++)
+	{
+		x = rand() % 30;
+		y = rand() % 30;
+
+		if (x != y) {
+			temp = dev_card2[x];
+			dev_card2[x] = dev_card2[y];
+			dev_card2[y] = temp;
+		}
+	}
+
+	//Áßº¹¾ø´Â °³¹ß Ä«µå2
+	for (i = 0; i < 20; i++) dev_card3[i] = i;
+	for (i = 0; i < 50; i++)
+	{
+		x = rand() % 20;
+		y = rand() % 20;
+
+		if (x != y) {
+			temp = dev_card3[x];
+			dev_card3[x] = dev_card3[y];
+			dev_card3[y] = temp;
+		}
+	}
+
+	//º¸µåÆÇ Ãâ·Â
+
+	current_player = 1;
+	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+
+
+	game(nob_card, dev_card1, dev_card2, dev_card3);
+		
+
+	system("pause");
+	return 0;
 }
 
-void color(int color) { // ë°°ê²½ìƒ‰ì´ ê²€ì€ìƒ‰ì¸ ê¸€ì”¨ìƒ‰ ë³€ê²½
+
+void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
+{
+	int key;
+	int i = 0;
+
+
+	printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+	printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n",current_player + 1);
+	printf("                                                            ¦¢ ¿øÇÏ´Â È°µ¿À» ¼±ÅÃÇØÁÖ¼¼¿ä.                                                                                           ¦¢\n");
+	printf("                                                            ¦¢ º¸¼® ÅäÅ« °¡Á®¿À±â  :   A                                                                                             ¦¢\n");
+	printf("                                                            ¦¢ °³¹ß Ä«µå ±¸ÀÔÇÏ±â  :   S                                                                                             ¦¢\n");
+	printf("                                                            ¦¢ °³¹ß Ä«µå Â«ÇÏ±â    :   D                                                                                             ¦¢\n");
+	printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+
+	while (1)
+	{
+		if (kbhit())
+		{
+			key = getch();
+			if (key == 97 || key == 65)
+			{
+				//º¸¼® ÅäÅ« °¡Á®¿À±â
+				system("cls");
+				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+				printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+				printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+				printf("                                                            ¦¢ º¸¼® ÅäÅ« °¡Á®¿À±â¸¦ ¼±ÅÃÇß½À´Ï´Ù.                                                                                    ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+			}
+			if (key == 115 || key == 83)
+			{
+				//°³¹ß Ä«µå ±¸ÀÔÇÏ±â
+				system("cls");
+				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+				printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+				printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+				printf("                                                            ¦¢ °³¹ß Ä«µå ±¸ÀÔÇÏ±â¸¦ ¼±ÅÃÇß½À´Ï´Ù.                                                                                    ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+			}
+			if (key == 100 || key == 68)
+			{
+				//°³¹ß Ä«µå ÂòÇÏ±â
+				system("cls");
+				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+				printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+				printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+				printf("                                                            ¦¢ °³¹ß Ä«µå ÂòÇÏ±â¸¦ ¼±ÅÃÇß½À´Ï´Ù.                                                                                      ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+				printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+			}
+			if (key == 49)
+			{
+				//Å×½ºÆ®¿ë : ÇÃ·¹ÀÌ¾î ¹Ù²Ù±â - ÀÛÇ° ¿Ï¼ºÇÒ ¶§´Â ÀÌ if¹® Áö¿ì±â
+				current_player -= 1;
+				system("cls");
+				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+				printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+				printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+				printf("                                                            ¦¢ ¿øÇÏ´Â È°µ¿À» ¼±ÅÃÇØÁÖ¼¼¿ä.                                                                                           ¦¢\n");
+				printf("                                                            ¦¢ º¸¼® ÅäÅ« °¡Á®¿À±â  :   A                                                                                             ¦¢\n");
+				printf("                                                            ¦¢ °³¹ß Ä«µå ±¸ÀÔÇÏ±â  :   S                                                                                             ¦¢\n");
+				printf("                                                            ¦¢ °³¹ß Ä«µå Â«ÇÏ±â    :   D                                                                                             ¦¢\n");
+				printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+			}
+			if (key == 50)
+			{
+				//Å×½ºÆ®¿ë : ÇÃ·¹ÀÌ¾î ¹Ù²Ù±â - ÀÛÇ° ¿Ï¼ºÇÒ ¶§´Â ÀÌ if¹® Áö¿ì±â
+				current_player += 1;
+				system("cls");
+				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+				printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+				printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+				printf("                                                            ¦¢ ¿øÇÏ´Â È°µ¿À» ¼±ÅÃÇØÁÖ¼¼¿ä.                                                                                           ¦¢\n");
+				printf("                                                            ¦¢ º¸¼® ÅäÅ« °¡Á®¿À±â  :   A                                                                                             ¦¢\n");
+				printf("                                                            ¦¢ °³¹ß Ä«µå ±¸ÀÔÇÏ±â  :   S                                                                                             ¦¢\n");
+				printf("                                                            ¦¢ °³¹ß Ä«µå Â«ÇÏ±â    :   D                                                                                             ¦¢\n");
+				printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+			}
+		}
+	}
+
+}
+
+void color(int color) { // ¹è°æ»öÀÌ °ËÀº»öÀÎ ±Û¾¾»ö º¯°æ
 	if (color == WHITE)
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 	else if (color == BLUE)
@@ -56,8 +211,8 @@ void color(int color) { // ë°°ê²½ìƒ‰ì´ ê²€ì€ìƒ‰ì¸ ê¸€ì”¨ìƒ‰ ë³€ê²½
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), LIGHT_GOLD);
 }
 
-void GROUND_color(int color) { // ë°°ê²½ì´ groundì— ë”°ë¼ ë°”ë€œ, ê¸€ì”¨ìƒ‰ ë³€ê²½
-	int ground = 9; // í˜„ìž¬ groundëŠ” 9 -> ë°ì€ íŒŒëž‘
+void GROUND_color(int color) { // ¹è°æÀÌ ground¿¡ µû¶ó ¹Ù²ñ, ±Û¾¾»ö º¯°æ
+	int ground = 9; // ÇöÀç ground´Â 9 -> ¹àÀº ÆÄ¶û
 	if (color == WHITE)
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (ground << 4) + WHITE);
 	else if (color == BLUE)
@@ -80,47 +235,54 @@ void GROUND_color(int color) { // ë°°ê²½ì´ groundì— ë”°ë¼ ë°”ë€œ, ê¸€ì”¨ìƒ‰ ë
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (ground << 4) + LIGHT_GOLD);
 }
 
-void print_void(void) // ë¹ˆì¹¸ ì¶œë ¥
+void print_void(void) // ºóÄ­ Ãâ·Â
 {
-	printf("â”‚                                                             â”‚\n");
+	printf("                                                            ¦¢                                                                                                                       ¦¢\n");
 }
 
-void boardpan(void)
+void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[])
 {
-	//ì¼ìžì¤„ í‘œí˜„
+	int a[5] = { 0, 1, 2, 3, 4 };
+	int b[4] = { 0, 1, 2, 3 };
+	int c[4] = { 0, 1, 2, 3 };
+	int d[4] = { 0, 1,2 , 3 };
+
+	printf("                                                             Splendor                                                                                          made by. 6ÆÀ <·ÎÄÏ´Ü>\n");
+
+	//ÀÏÀÚÁÙ Ç¥Çö
 	color(WHITE);
-	printf("â”Œ");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”¬");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”");
+	printf("                                                            ¦£");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦¨");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦¤");
 	printf("\n");
 
-	if (current_player == 0) // player1 ì°¨ë¡€ì¼ë•Œ
+	if (current_player == 0) // player1 Â÷·ÊÀÏ¶§
 	{
-		printf("â”‚ ");
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("player1                      ");
+		printf("player1                                                   ");
 		color(WHITE);
-		printf("â”‚");
-		printf(" player2                      ");
-		printf("â”‚\n");
-		printf("â”‚ ");
+		printf("¦¢");
+		printf(" player2                                                   ");
+		printf("¦¢\n");
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ì ìˆ˜ : %d                     ", player[0].score);
+		printf("Á¡¼ö : %d                                                  ", player[0].score);
 		color(WHITE);
-		printf("â”‚");
-		printf(" ì ìˆ˜ : %d                     ", player[1].score);
-		printf("â”‚");
+		printf("¦¢");
+		printf(" Á¡¼ö : %d                                                  ", player[1].score);
+		printf("¦¢");
 		color(WHITE);
 		printf("\n");
 
-		//ë³´ì„ í† í° ì¶œë ¥
-		printf("â”‚ ");
+		//º¸¼® ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ë³´ì„ í† í° : ");
+		printf("º¸¼® ÅäÅ« : ");
 		GROUND_color(WHITE);
 		printf("%d ", player[0].white);
 		GROUND_color(BLUE);
@@ -134,10 +296,10 @@ void boardpan(void)
 		GROUND_color(GOLD);
 		printf("%d ", player[0].gold);
 		GROUND_color(WHITE);
-		printf("     ");
+		printf("                                  ");
 		color(WHITE);
-		printf("â”‚");
-		printf(" ë³´ì„ í† í° : ");
+		printf("¦¢");
+		printf(" º¸¼® ÅäÅ« : ");
 		printf("%d ", player[1].white);
 		color(BLUE);
 		printf("%d ", player[1].blue);
@@ -150,12 +312,12 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[1].gold);
 		color(WHITE);
-		printf("     â”‚\n");
+		printf("                                  ¦¢\n");
 
-		//ì¹´ë“œ í† í° ì¶œë ¥
-		printf("â”‚ ");
+		//Ä«µå ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ì¹´ë“œ í† í° : ");
+		printf("Ä«µå ÅäÅ« : ");
 		printf("%d ", player[0].card_white);
 		GROUND_color(BLUE);
 		printf("%d ", player[0].card_blue);
@@ -166,10 +328,10 @@ void boardpan(void)
 		GROUND_color(BROWN);
 		printf("%d ", player[0].card_brown);
 		GROUND_color(WHITE);
-		printf("       ");
+		printf("                                    ");
 		color(WHITE);
-		printf("â”‚");
-		printf(" ì¹´ë“œ í† í° : ");
+		printf("¦¢");
+		printf(" Ä«µå ÅäÅ« : ");
 		printf("%d ", player[1].card_white);
 		color(BLUE);
 		printf("%d ", player[1].card_blue);
@@ -180,30 +342,31 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[1].card_brown);
 		color(WHITE);
-		printf("       â”‚\n");
+		printf("                                    ¦¢\n");
 	}
-	else if (current_player == 1) // player2ì°¨ë¡€ ì¼ë•Œ
+	else if (current_player == 1) // player2Â÷·Ê ÀÏ¶§
 	{
-		printf("â”‚");
+		printf("                                                            ¦¢");
 		color(WHITE);
-		printf(" player1                      ");
-		printf("â”‚ ");
+		printf(" player1                                                   ");
+		printf("¦¢ ");
 		GROUND_color(WHITE);
-		printf("player2                      ");
+		printf("player2                                                   ");
 		color(WHITE);
-		printf("â”‚");
-		printf("\n");
-		printf("â”‚ ");
-		printf("ì ìˆ˜ : %d                     ", player[0].score);
-		printf("â”‚ ");
-		GROUND_color(WHITE);
-		printf("ì ìˆ˜ : %d                     ", player[1].score);
-		color(WHITE);
-		printf("â”‚");
+		printf("¦¢");
 		printf("\n");
 
-		//ë³´ì„ í† í° ì¶œë ¥
-		printf("â”‚ ë³´ì„ í† í° : ");
+		printf("                                                            ¦¢ ");
+		printf("Á¡¼ö : %d                                                  ", player[0].score);
+		printf("¦¢ ");
+		GROUND_color(WHITE);
+		printf("Á¡¼ö : %d                                                  ", player[1].score);
+		color(WHITE);
+		printf("¦¢");
+		printf("\n");
+
+		//º¸¼® ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ º¸¼® ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[0].white);
 		color(BLUE);
@@ -217,9 +380,9 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[0].gold);
 		color(WHITE);
-		printf("     â”‚ ");
+		printf("                                  ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ë³´ì„ í† í° : ");
+		printf("º¸¼® ÅäÅ« : ");
 		printf("%d ", player[1].white);
 		GROUND_color(BLUE);
 		printf("%d ", player[1].blue);
@@ -232,13 +395,13 @@ void boardpan(void)
 		GROUND_color(GOLD);
 		printf("%d ", player[1].gold);
 		GROUND_color(WHITE);
-		printf("     ");
+		printf("                                  ");
 		color(WHITE);
-		printf("â”‚");
+		printf("¦¢");
 		printf("\n");
 
-		//ì¹´ë“œ í† í° ì¶œë ¥
-		printf("â”‚ ì¹´ë“œ í† í° : ");
+		//Ä«µå ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ Ä«µå ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[0].card_white);
 		color(BLUE);
@@ -250,9 +413,9 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[0].card_brown);
 		color(WHITE);
-		printf("       â”‚ ");
+		printf("                                    ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ì¹´ë“œ í† í° : ");
+		printf("Ä«µå ÅäÅ« : ");
 		printf("%d ", player[1].card_white);
 		GROUND_color(BLUE);
 		printf("%d ", player[1].card_blue);
@@ -263,32 +426,33 @@ void boardpan(void)
 		GROUND_color(BROWN);
 		printf("%d ", player[1].card_brown);
 		GROUND_color(WHITE);
-		printf("       ");
+		printf("                                    ");
 		color(WHITE);
-		printf("â”‚");
+		printf("¦¢");
 		printf("\n");
 	}
-	else // player1, 2 ì¤‘ ëˆ„êµ¬ì˜ ì°¨ë¡€ë„ ì•„ë‹ ë•Œ
+
+	else // player1, 2 Áß ´©±¸ÀÇ Â÷·Êµµ ¾Æ´Ò ¶§
 	{
-		printf("â”‚");
+		printf("                                                            ¦¢");
 		color(WHITE);
-		printf(" player1                      ");
-		printf("â”‚");
+		printf(" player1                                                   ");
+		printf("¦¢");
 		color(WHITE);
-		printf(" player2                      ");
+		printf(" player2                                                   ");
 		color(WHITE);
-		printf("â”‚\n");
-		printf("â”‚");
+		printf("¦¢\n");
+		printf("                                                            ¦¢");
 		color(WHITE);
-		printf(" ì ìˆ˜ : %d                     ", player[0].score);
-		printf("â”‚");
+		printf(" Á¡¼ö : %d                                                  ", player[0].score);
+		printf("¦¢");
 		color(WHITE);
-		printf(" ì ìˆ˜ : %d                     ", player[1].score);
-		printf("â”‚\n");
+		printf(" Á¡¼ö : %d                                                  ", player[1].score);
+		printf("¦¢\n");
 		color(WHITE);
 
-		//ë³´ì„ í† í° ì¶œë ¥
-		printf("â”‚ ë³´ì„ í† í° : ");
+		//º¸¼® ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ º¸¼® ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[0].white);
 		color(BLUE);
@@ -302,7 +466,7 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[0].gold);
 		color(WHITE);
-		printf("     â”‚ ë³´ì„ í† í° : ");
+		printf("                                  ¦¢ º¸¼® ÅäÅ« : ");
 		printf("%d ", player[1].white);
 		color(BLUE);
 		printf("%d ", player[1].blue);
@@ -315,10 +479,10 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[1].gold);
 		color(WHITE);
-		printf("     â”‚\n");
+		printf("                                  ¦¢\n");
 
-		//ì¹´ë“œ í† í° ì¶œë ¥
-		printf("â”‚ ì¹´ë“œ í† í° : ");
+		//Ä«µå ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ Ä«µå ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[0].card_white);
 		color(BLUE);
@@ -330,7 +494,7 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[0].card_brown);
 		color(WHITE);
-		printf("       â”‚ ì¹´ë“œ í† í° : ");
+		printf("                                    ¦¢ Ä«µå ÅäÅ« : ");
 		printf("%d ", player[1].card_white);
 		color(BLUE);
 		printf("%d ", player[1].card_blue);
@@ -341,307 +505,770 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[1].card_brown);
 		color(WHITE);
-		printf("       â”‚\n");
+		printf("                                    ¦¢\n");
 	}
 
-	//ì¼ìžì¤„ í‘œí˜„
-	printf("â”œ");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”´");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”¤");
+	//ÀÏÀÚÁÙ Ç¥Çö
+	printf("                                                            ¦§");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦ª");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦©");
 	printf("\n");
 
-	//ë¹ˆì¹¸
+	//ºóÄ­
 	print_void();
 
-	//ê·€ì¡± ì¹´ë“œ ì¶œë ¥
-	printf("â”‚                        ");
+	//±ÍÁ· Ä«µå Ãâ·Â
+	printf("                                                            ¦¢                                                     ");
 	color(LIGHT_RED);
-	printf("--ê·€ì¡± ì¹´ë“œ--");
+	printf("--±ÍÁ· Ä«µå--");
 	color(WHITE);
-	printf("                        â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_RED);
-	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â” ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_RED);
-	printf("â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_RED);
-	printf("â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_RED);
-	printf("â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_RED);
-	printf("â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_RED);
-	printf("â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ â”‚         â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_RED);
-	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ ");
-	color(WHITE);
-	printf("â”‚\n");
+	printf("                                                     ¦¢\n");
 
-	//ê°œë°œ ì¹´ë“œ ì¶œë ¥
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤                              ");
 	color(WHITE);
-	printf("â”‚                    ");
-	color(LIGHT_GREEN);
-	printf("-- 1ë‹¨ê³„ ê°œë°œ ì¹´ë“œ--");
-	color(WHITE);
-	printf("                     â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GREEN);
-	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ ");
-	color(WHITE);
-	printf("â”‚\n");
+	printf("¦¢\n");
 
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦¢       ");
 	color(WHITE);
-	printf("â”‚                    ");
-	color(LIGHT_GOLD);
-	printf("-- 2ë‹¨ê³„ ê°œë°œ ì¹´ë“œ--");
+	printf(" 3");
+	color(LIGHT_RED);
+	printf("¦¢ ¦¢       ");
 	color(WHITE);
-	printf("                     â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” ");
+	printf(" 3");
+	color(LIGHT_RED);
+	printf("¦¢ ¦¢       ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
+	printf(" 3");
+	color(LIGHT_RED);
+	printf("¦¢ ¦¢       ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
+	printf(" 3");
+	color(LIGHT_RED);
+	printf("¦¢ ¦¢       ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
+	printf(" 3");
+	color(LIGHT_RED);
+	printf("¦¢ ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_GOLD);
-	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ ");
-	color(WHITE);
-	printf("â”‚\n");
+	printf("                             ¦¢\n");
 
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦¢ ");
 	color(WHITE);
-	printf("â”‚                    ");
-	color(LIGHT_BLUE);
-	printf("-- 3ë‹¨ê³„ ê°œë°œ ì¹´ë“œ--");
+	printf("¡á %d", nob[nob_card[a[0]]].white);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
 	color(WHITE);
-	printf("                     â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” ");
+	printf("¡á %d", nob[nob_card[a[1]]].white);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
+	printf("¡á %d", nob[nob_card[a[2]]].white);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
+	printf("¡á %d", nob[nob_card[a[3]]].white);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
+	printf("¡á %d", nob[nob_card[a[4]]].white);
+	color(LIGHT_RED);
+	printf("    ¦¢ ");
 	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ â”‚            â”‚ ");
-	color(WHITE);
-	printf("â”‚\n");
-	printf("â”‚ ");
-	color(LIGHT_BLUE);
-	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ ");
-	color(WHITE);
-	printf("â”‚\n");
+	printf("                             ¦¢\n");
 
-	//ë¹ˆì¹¸
-	print_void();
-
-	//í† í° ì°½ê³  ë³´ìœ  í† í° ì¶œë ¥
-	printf("â”‚        â— %d    ", white);
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦¢ ");
 	color(BLUE);
-	printf("â— %d    ", blue);
-	color(RED);
-	printf("â— %d    ", red);
-	color(GREEN);
-	printf("â— %d    ", green);
-	color(BROWN);
-	printf("â— %d    ", brown);
-	color(GOLD);
-	printf("â— %d", gold);
+	printf("¡á %d", nob[nob_card[a[0]]].blue);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡á %d", nob[nob_card[a[1]]].blue);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡á %d", nob[nob_card[a[2]]].blue);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡á %d", nob[nob_card[a[3]]].blue);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡á %d", nob[nob_card[a[4]]].blue);
+	color(LIGHT_RED);
+	printf("    ¦¢ ");
 	color(WHITE);
-	printf("         â”‚\n");
+	printf("                             ¦¢\n");
 
-	//ë¹ˆì¹¸
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦¢ ");
+	color(RED);
+	printf("¡á %d", nob[nob_card[a[0]]].red);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡á %d", nob[nob_card[a[1]]].red);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡á %d", nob[nob_card[a[2]]].red);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡á %d", nob[nob_card[a[3]]].red);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡á %d", nob[nob_card[a[4]]].red);
+	color(LIGHT_RED);
+	printf("    ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦¢ ");
+	color(GREEN);
+	printf("¡á %d", nob[nob_card[a[0]]].green);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡á %d", nob[nob_card[a[1]]].green);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡á %d", nob[nob_card[a[2]]].green);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡á %d", nob[nob_card[a[3]]].green);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡á %d", nob[nob_card[a[4]]].green);
+	color(LIGHT_RED);
+	printf("    ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦¢ ");
+	color(BROWN);
+	printf("¡á %d", nob[nob_card[a[0]]].brown);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡á %d", nob[nob_card[a[1]]].brown);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡á %d", nob[nob_card[a[2]]].brown);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡á %d", nob[nob_card[a[3]]].brown);
+	color(LIGHT_RED);
+	printf("    ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡á %d", nob[nob_card[a[4]]].brown);
+	color(LIGHT_RED);
+	printf("    ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_RED);
+	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	//ºóÄ­
 	print_void();
 
-	//ì¼ìžì¤„ í‘œí˜„
+	//°³¹ß Ä«µå Ãâ·Â
 	color(WHITE);
-	printf("â”œ");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”¬");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”¤");
+	printf("                                                            ¦¢                                                 ");
+	color(LIGHT_GREEN);
+	printf("-- 1´Ü°è °³¹ß Ä«µå--");
+	color(WHITE);
+	printf("                                                  ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("%d", card1[dev_card1[b[0]]].point);
+	color(LIGHT_GREEN);
+	printf("        ");
+	print_jowel(card1[dev_card1[b[0]]].value);
+	color(LIGHT_GREEN);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card1[dev_card1[b[1]]].point);
+	color(LIGHT_GREEN);
+	printf("        ");
+	print_jowel(card1[dev_card1[b[1]]].value);
+	color(LIGHT_GREEN);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card1[dev_card1[b[2]]].point);
+	color(LIGHT_GREEN);
+	printf("        ");
+	print_jowel(card1[dev_card1[b[2]]].value);
+	color(LIGHT_GREEN);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card1[dev_card1[b[3]]].point);
+	color(LIGHT_GREEN);
+	printf("        ");
+	print_jowel(card1[dev_card1[b[3]]].value);
+	color(LIGHT_GREEN);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¢            ¦¢ ¦¢            ¦¢ ¦¢            ¦¢ ¦¢            ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card1[dev_card1[b[0]]].white);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card1[dev_card1[b[1]]].white);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card1[dev_card1[b[2]]].white);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card1[dev_card1[b[3]]].white);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card1[dev_card1[b[0]]].blue);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card1[dev_card1[b[1]]].blue);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card1[dev_card1[b[2]]].blue);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card1[dev_card1[b[3]]].blue);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card1[dev_card1[b[0]]].red);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card1[dev_card1[b[1]]].red);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card1[dev_card1[b[2]]].red);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card1[dev_card1[b[3]]].red);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card1[dev_card1[b[0]]].green);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card1[dev_card1[b[1]]].green);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card1[dev_card1[b[2]]].green);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card1[dev_card1[b[3]]].green);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card1[dev_card1[b[0]]].brown);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card1[dev_card1[b[1]]].brown);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card1[dev_card1[b[2]]].brown);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card1[dev_card1[b[3]]].brown);
+	color(LIGHT_GREEN);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GREEN);
+	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+
+	
+	color(WHITE);
+	printf("                                                            ¦¢                                                 ");
+	color(LIGHT_GOLD);
+	printf("-- 2´Ü°è °³¹ß Ä«µå--");
+	color(WHITE);
+	printf("                                                  ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("%d", card2[dev_card2[c[0]]].point);
+	color(LIGHT_GOLD);
+	printf("        ");
+	print_jowel(card2[dev_card2[c[0]]].value);
+	color(LIGHT_GOLD);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card2[dev_card2[c[1]]].point);
+	color(LIGHT_GOLD);
+	printf("        ");
+	print_jowel(card2[dev_card2[c[1]]].value);
+	color(LIGHT_GOLD);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card2[dev_card2[c[2]]].point);
+	color(LIGHT_GOLD);
+	printf("        ");
+	print_jowel(card2[dev_card2[c[2]]].value);
+	color(LIGHT_GOLD);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card2[dev_card2[c[3]]].point);
+	color(LIGHT_GOLD);
+	printf("        ");
+	print_jowel(card2[dev_card2[c[3]]].value);
+	color(LIGHT_GOLD);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¢            ¦¢ ¦¢            ¦¢ ¦¢            ¦¢ ¦¢            ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card2[dev_card2[c[0]]].white);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card2[dev_card2[c[1]]].white);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card2[dev_card2[c[2]]].white);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card2[dev_card2[c[3]]].white);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card2[dev_card2[c[0]]].blue);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card2[dev_card2[c[1]]].blue);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card2[dev_card2[c[2]]].blue);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card2[dev_card2[c[3]]].blue);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card2[dev_card2[c[0]]].red);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card2[dev_card2[c[1]]].red);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card2[dev_card2[c[2]]].red);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card2[dev_card2[c[3]]].red);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card2[dev_card2[c[0]]].green);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card2[dev_card2[c[1]]].green);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card2[dev_card2[c[2]]].green);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card2[dev_card2[c[3]]].green);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card2[dev_card2[c[0]]].brown);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card2[dev_card2[c[1]]].brown);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card2[dev_card2[c[2]]].brown);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card2[dev_card2[c[3]]].brown);
+	color(LIGHT_GOLD);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_GOLD);
+	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+
+
+	color(WHITE);
+	printf("                                                            ¦¢                                                 ");
+	color(LIGHT_BLUE);
+	printf("-- 3´Ü°è °³¹ß Ä«µå--");
+	color(WHITE);
+	printf("                                                  ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("%d", card3[dev_card3[d[0]]].point);
+	color(LIGHT_BLUE);
+	printf("        ");
+	print_jowel(card3[dev_card3[d[0]]].value);
+	color(LIGHT_BLUE);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card3[dev_card3[d[1]]].point);
+	color(LIGHT_BLUE);
+	printf("        ");
+	print_jowel(card3[dev_card3[d[1]]].value);
+	color(LIGHT_BLUE);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card3[dev_card3[d[2]]].point);
+	color(LIGHT_BLUE);
+	printf("        ");
+	print_jowel(card3[dev_card3[d[2]]].value);
+	color(LIGHT_BLUE);
+	printf("¦¢ ¦¢ ");
+	color(WHITE);
+	printf("%d", card3[dev_card3[d[3]]].point);
+	color(LIGHT_BLUE);
+	printf("        ");
+	print_jowel(card3[dev_card3[d[3]]].value);
+	color(LIGHT_BLUE);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¢            ¦¢ ¦¢            ¦¢ ¦¢            ¦¢ ¦¢            ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card3[dev_card3[d[0]]].white);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card3[dev_card3[d[1]]].white);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card3[dev_card3[d[2]]].white);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(WHITE);
+	printf("¡Ü %d", card3[dev_card3[d[3]]].white);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card3[dev_card3[d[0]]].blue);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card3[dev_card3[d[1]]].blue);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card3[dev_card3[d[2]]].blue);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(BLUE);
+	printf("¡Ü %d", card3[dev_card3[d[3]]].blue);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card3[dev_card3[d[0]]].red);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card3[dev_card3[d[1]]].red);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card3[dev_card3[d[2]]].red);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(RED);
+	printf("¡Ü %d", card3[dev_card3[d[3]]].red);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card3[dev_card3[d[0]]].green);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card3[dev_card3[d[1]]].green);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card3[dev_card3[d[2]]].green);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(GREEN);
+	printf("¡Ü %d", card3[dev_card3[d[3]]].green);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card3[dev_card3[d[0]]].brown);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card3[dev_card3[d[1]]].brown);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card3[dev_card3[d[2]]].brown);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ¦¢ ");
+	color(BROWN);
+	printf("¡Ü %d", card3[dev_card3[d[3]]].brown);
+	color(LIGHT_BLUE);
+	printf("       ¦¢ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+	printf("                                                            ¦¢                              ");
+	color(LIGHT_BLUE);
+	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ ");
+	color(WHITE);
+	printf("                             ¦¢\n");
+
+
+	//ºóÄ­
+	print_void();
+
+	//ÅäÅ« Ã¢°í º¸À¯ ÅäÅ« Ãâ·Â
+	printf("                                                            ¦¢                                     ¡Ü %d    ", white);
+	color(BLUE);
+	printf("¡Ü %d    ", blue);
+	color(RED);
+	printf("¡Ü %d    ", red);
+	color(GREEN);
+	printf("¡Ü %d    ", green);
+	color(BROWN);
+	printf("¡Ü %d    ", brown);
+	color(GOLD);
+	printf("¡Ü %d", gold);
+	color(WHITE);
+	printf("                                      ¦¢\n");
+
+	//ºóÄ­
+	print_void();
+
+	//ÀÏÀÚÁÙ Ç¥Çö
+	color(WHITE);
+	printf("                                                            ¦§");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦¨");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦©");
 	printf("\n");
 
 
-	if (current_player == 2) // player3 ì°¨ë¡€ì¼ë•Œ
+	if (current_player == 2) // player3 Â÷·ÊÀÏ¶§
 	{
-		printf("â”‚ ");
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("player3                      ");
+		printf("player3                                                   ");
 		color(WHITE);
-		printf("â”‚");
-		printf(" player4                      ");
-		printf("â”‚");
+		printf("¦¢");
+		printf(" player4                                                   ");
+		printf("¦¢");
 		printf("\n");
-		printf("â”‚ ");
+
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ì ìˆ˜ : %d                     ", player[2].score);
+		printf("Á¡¼ö : %d                                                  ", player[2].score);
 		color(WHITE);
-		printf("â”‚");
-		printf(" ì ìˆ˜ : %d                     ", player[3].score);
-		printf("â”‚\n");
+		printf("¦¢");
+		printf(" Á¡¼ö : %d                                                  ", player[3].score);
+		printf("¦¢\n");
 		color(WHITE);
 
-		//ë³´ì„ í† í° ì¶œë ¥
-		printf("â”‚ ");
+		//º¸¼® ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ë³´ì„ í† í° : ");
+		printf("º¸¼® ÅäÅ« : ");
 		GROUND_color(WHITE);
 		printf("%d ", player[2].white);
 		GROUND_color(BLUE);
@@ -655,10 +1282,10 @@ void boardpan(void)
 		GROUND_color(GOLD);
 		printf("%d ", player[2].gold);
 		GROUND_color(WHITE);
-		printf("     ");
+		printf("                                  ");
 		color(WHITE);
-		printf("â”‚");
-		printf(" ë³´ì„ í† í° : ");
+		printf("¦¢");
+		printf(" º¸¼® ÅäÅ« : ");
 		printf("%d ", player[3].white);
 		color(BLUE);
 		printf("%d ", player[3].blue);
@@ -671,12 +1298,12 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[3].gold);
 		color(WHITE);
-		printf("     â”‚\n");
+		printf("                                  ¦¢\n");
 
-		//ì¹´ë“œ í† í° ì¶œë ¥
-		printf("â”‚ ");
+		//Ä«µå ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ì¹´ë“œ í† í° : ");
+		printf("Ä«µå ÅäÅ« : ");
 		printf("%d ", player[2].card_white);
 		GROUND_color(BLUE);
 		printf("%d ", player[2].card_blue);
@@ -687,10 +1314,10 @@ void boardpan(void)
 		GROUND_color(BROWN);
 		printf("%d ", player[2].card_brown);
 		GROUND_color(WHITE);
-		printf("       ");
+		printf("                                    ");
 		color(WHITE);
-		printf("â”‚");
-		printf(" ì¹´ë“œ í† í° : ");
+		printf("¦¢");
+		printf(" Ä«µå ÅäÅ« : ");
 		printf("%d ", player[3].card_white);
 		color(BLUE);
 		printf("%d ", player[3].card_blue);
@@ -701,31 +1328,32 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[3].card_brown);
 		color(WHITE);
-		printf("       â”‚");
+		printf("                                    ¦¢");
 		printf("\n");
 	}
-	else if (current_player == 3) // player4ì°¨ë¡€ ì¼ë•Œ
+	else if (current_player == 3) // player4Â÷·Ê ÀÏ¶§
 	{
-		printf("â”‚ ");
+		printf("                                                            ¦¢ ");
 		color(WHITE);
-		printf("player3                      ");
-		printf("â”‚ ");
+		printf("player3                                                   ");
+		printf("¦¢ ");
 		GROUND_color(WHITE);
-		printf("player4                      ");
+		printf("player4                                                   ");
 		color(WHITE);
-		printf("â”‚");
-		printf("\n");
-		printf("â”‚ ");
-		printf("ì ìˆ˜ : %d                     ", player[2].score);
-		printf("â”‚ ");
-		GROUND_color(WHITE);
-		printf("ì ìˆ˜ : %d                     ", player[3].score);
-		color(WHITE);
-		printf("â”‚");
+		printf("¦¢");
 		printf("\n");
 
-		//ë³´ì„ í† í° ì¶œë ¥
-		printf("â”‚ ë³´ì„ í† í° : ");
+		printf("                                                            ¦¢ ");
+		printf("Á¡¼ö : %d                                                  ", player[2].score);
+		printf("¦¢ ");
+		GROUND_color(WHITE);
+		printf("Á¡¼ö : %d                                                  ", player[3].score);
+		color(WHITE);
+		printf("¦¢");
+		printf("\n");
+
+		//º¸¼® ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ º¸¼® ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[2].white);
 		color(BLUE);
@@ -739,9 +1367,9 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[2].gold);
 		color(WHITE);
-		printf("     â”‚ ");
+		printf("                                  ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ë³´ì„ í† í° : ");
+		printf("º¸¼® ÅäÅ« : ");
 		printf("%d ", player[3].white);
 		GROUND_color(BLUE);
 		printf("%d ", player[3].blue);
@@ -754,12 +1382,12 @@ void boardpan(void)
 		GROUND_color(GOLD);
 		printf("%d ", player[3].gold);
 		GROUND_color(WHITE);
-		printf("     ");
+		printf("                                  ");
 		color(WHITE);
-		printf("â”‚\n");
+		printf("¦¢\n");
 
-		//ì¹´ë“œ í† í° ì¶œë ¥
-		printf("â”‚ ì¹´ë“œ í† í° : ");
+		//Ä«µå ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ Ä«µå ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[2].card_white);
 		color(BLUE);
@@ -771,9 +1399,9 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[2].card_brown);
 		color(WHITE);
-		printf("       â”‚ ");
+		printf("                                    ¦¢ ");
 		GROUND_color(WHITE);
-		printf("ì¹´ë“œ í† í° : ");
+		printf("Ä«µå ÅäÅ« : ");
 		printf("%d ", player[3].card_white);
 		GROUND_color(BLUE);
 		printf("%d ", player[3].card_blue);
@@ -784,33 +1412,34 @@ void boardpan(void)
 		GROUND_color(BROWN);
 		printf("%d ", player[3].card_brown);
 		GROUND_color(WHITE);
-		printf("       ");
+		printf("                                    ");
 		color(WHITE);
-		printf("â”‚");
+		printf("¦¢");
 		printf("\n");
 	}
 
-	else // player3, 4 ì¤‘ ëˆ„êµ¬ì˜ ì°¨ë¡€ë„ ì•„ë‹ ë•Œ
+	else // player3, 4 Áß ´©±¸ÀÇ Â÷·Êµµ ¾Æ´Ò ¶§
 	{
-		printf("â”‚");
+		printf("                                                            ¦¢");
 		color(WHITE);
-		printf(" player3                      ");
-		printf("â”‚");
+		printf(" player3                                                   ");
+		printf("¦¢");
 		color(WHITE);
-		printf(" player4                      ");
+		printf(" player4                                                   ");
 		color(WHITE);
-		printf("â”‚\n");
-		printf("â”‚");
+		printf("¦¢\n");
+
+		printf("                                                            ¦¢");
 		color(WHITE);
-		printf(" ì ìˆ˜ : %d                     ", player[2].score);
-		printf("â”‚");
+		printf(" Á¡¼ö : %d                                                  ", player[2].score);
+		printf("¦¢");
 		color(WHITE);
-		printf(" ì ìˆ˜ : %d                     ", player[3].score);
-		printf("â”‚\n");
+		printf(" Á¡¼ö : %d                                                  ", player[3].score);
+		printf("¦¢\n");
 		color(WHITE);
 
-		//ë³´ì„ í† í° ì¶œë ¥
-		printf("â”‚ ë³´ì„ í† í° : ");
+		//º¸¼® ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ º¸¼® ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[2].white);
 		color(BLUE);
@@ -824,7 +1453,7 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[2].gold);
 		color(WHITE);
-		printf("     â”‚ ë³´ì„ í† í° : ");
+		printf("                                  ¦¢ º¸¼® ÅäÅ« : ");
 		printf("%d ", player[3].white);
 		color(BLUE);
 		printf("%d ", player[3].blue);
@@ -837,10 +1466,10 @@ void boardpan(void)
 		color(GOLD);
 		printf("%d ", player[3].gold);
 		color(WHITE);
-		printf("     â”‚\n");
+		printf("                                  ¦¢\n");
 
-		//ì¹´ë“œ í† í° ì¶œë ¥
-		printf("â”‚ ì¹´ë“œ í† í° : ");
+		//Ä«µå ÅäÅ« Ãâ·Â
+		printf("                                                            ¦¢ Ä«µå ÅäÅ« : ");
 		color(WHITE);
 		printf("%d ", player[2].card_white);
 		color(BLUE);
@@ -852,7 +1481,7 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[2].card_brown);
 		color(WHITE);
-		printf("       â”‚ ì¹´ë“œ í† í° : ");
+		printf("                                    ¦¢ Ä«µå ÅäÅ« : ");
 		printf("%d ", player[3].card_white);
 		color(BLUE);
 		printf("%d ", player[3].card_blue);
@@ -863,16 +1492,49 @@ void boardpan(void)
 		color(BROWN);
 		printf("%d ", player[3].card_brown);
 		color(WHITE);
-		printf("       â”‚\n");
+		printf("                                    ¦¢\n");
 	}
 
-	//ì¼ìžì¤„ í‘œí˜„
-	printf("â””");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”´");
-	for (int i = 0; i < 30; i++)
-		printf("â”€");
-	printf("â”˜");
+	//ÀÏÀÚÁÙ Ç¥Çö
+	printf("                                                            ¦¦");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦ª");
+	for (int i = 0; i < 59; i++)
+		printf("¦¡");
+	printf("¦¥");
 	printf("\n");
+}
+
+void print_jowel(char jowel[]) // Ä«µå º¸¼® ÅäÅ« Ãâ·Â
+{
+	if (!strcmp(jowel, "white"))
+	{
+		color(WHITE);
+		printf("¡á");
+	}
+
+	if (!strcmp(jowel, "blue"))
+	{
+		color(BLUE);
+		printf("¡á");
+	}
+
+	if (!strcmp(jowel, "red"))
+	{
+		color(RED);
+		printf("¡á");
+	}
+
+	if (!strcmp(jowel, "green"))
+	{
+		color(GREEN);
+		printf("¡á");
+	}
+
+	if (!strcmp(jowel, "brown"))
+	{
+		color(BROWN);
+		printf("¡á");
+	}
 }

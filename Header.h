@@ -1,9 +1,12 @@
 #pragma once
 
-void boardpan(void);
+void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[]);
 void print_void(void);
 void color(int color);
 void GROUND_color(int color);
+void print_jowel(char jowel[]);
+void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[]);
+
 
 extern int white;
 extern int blue;
