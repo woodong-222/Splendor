@@ -14,6 +14,14 @@
 #define LIGHT_GREEN 10
 #define LIGHT_RED 12
 #define LIGHT_GOLD 14
+#define DO    260 //도
+#define RE    290 //레
+#define MI    330 //미
+#define PA    340 //파
+#define SOL   380 //솔
+#define RA    430 //라
+#define SI    490 //시
+#define _DO    510 //도
 
 Develop_1 card1[40] = { {1,"brown",0,4,0,0,0}, {1,"red",4,0,0,0,0}, {1,"blue",0,0,4,0,0}, {1,"green",0,0,0,0,4}, {1,"white",0,0,0,4,0}, {0,"blue",1,0,1,1,1}, {0,"blue",1,0,2,2,0}, {0,"blue",0,1,1,3,0}, {0,"blue",1,0,2,1,1}, {0,"blue",0,0,0,0,3}, {0,"blue",0,0,0,2,2}, {0,"blue",1,0,0,0,2}, {0,"green",0,0,3,0,0}, {0,"green",0,2,2,0,0}, {0,"green",0,1,2,0,2}, {0,"green",1,1,1,0,1}, {0,"green",1,1,1,0,2}, {0,"green",2,1,0,0,0}, {0,"green",1,3,0,1,0}, {0,"brown",0,0,1,2,0}, {0,"brown",2,2,1,0,0}, {0,"brown",1,1,1,1,0}, {0,"brown",0,0,0,3,0}, {0,"brown",0,0,3,1,1}, {0,"brown",1,2,1,1,0}, {0,"brown",2,0,0,2,0}, {0,"red",2,1,0,1,1}, {0,"red",2,0,2,0,0}, {0,"red",1,1,0,1,1}, {0,"red",0,2,0,1,0}, {0,"red",3,0,0,0,0}, {0,"red",2,0,0,1,2}, {0,"red",1,0,1,0,3}, {0,"white",0,2,0,0,2}, {0,"white",0,1,1,2,1}, {0,"white",0,1,1,1,1}, {0,"white",0,3,0,0,0}, {0,"white",0,0,2,0,1}, {0,"white",0,2,0,2,1}, {0,"white",3,1,0,0,1} };
 Develop_2 card2[30] = { { 2,"brown",5,0,0,0,0}, {2,"blue",5,3,0,0,0}, {1,"green",2,3,0,0,2}, {2,"white",0,0,4,1,2}, {1,"green",4,2,0,0,1}, {3,"white",6,0,0,0,0}, {2,"white",0,0,5,0,0}, {1,"green",3,0,3,2,0}, {2,"blue",2,0,1,0,4}, {1,"white",0,0,2,3,2}, {1,"red",0,3,2,0,3}, {3,"blue",0,6,0,0,0}, {1,"brown",3,2,0,2,0}, {1,"blue",0,2,0,3,3},{1,"red",2,0,2,0,3}, {2,"brown",0,0,3,5,0}, {2,"green",0,0,0,5,0}, {2,"green",0,5,0,3,0}, {1,"brown",3,0,0,3,2}, {2,"blue",0,5,0,0,0}, {2,"red",0,0,0,0,5}, {1,"blue",0,2,3,2,0}, {2,"red",1,4,0,2,0}, {3,"red",0,0,6,0,0}, {1,"white",2,3,3,0,0}, {3,"green",0,0,0,6,0}, {2,"white",0,0,5,0,3}, {3,"brown",0,0,0,0,6}, {2,"brown",0,1,2,4,0}, {2,"red",3,0,0,0,5} };
@@ -85,7 +93,9 @@ int main(void)
 
 	//보드판 출력
 
-	current_player = 1;
+	current_player = 0;
+	intro();
+
 	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 
 
@@ -95,7 +105,6 @@ int main(void)
 	system("pause");
 	return 0;
 }
-
 
 void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 {
@@ -119,6 +128,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 97 || key == 65)
 			{
 				//보석 토큰 가져오기
+				M(DO);
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -132,6 +142,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 115 || key == 83)
 			{
 				//개발 카드 구입하기
+				M(RE);
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -145,6 +156,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 100 || key == 68)
 			{
 				//개발 카드 찜하기
+				M(MI);
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -158,6 +170,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 49)
 			{
 				//테스트용 : 플레이어 바꾸기 - 작품 완성할 때는 이 if문 지우기
+				M(PA);
 				current_player -= 1;
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
@@ -172,6 +185,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 50)
 			{
 				//테스트용 : 플레이어 바꾸기 - 작품 완성할 때는 이 if문 지우기
+				M(SOL);
 				current_player += 1;
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
@@ -247,7 +261,7 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	int c[4] = { 0, 1, 2, 3 };
 	int d[4] = { 0, 1,2 , 3 };
 
-	printf("                                                             Splendor                                                                                          made by. 6팀 <로켓단>\n");
+	printf("\n\n                                                             Splendor                                                                                             made by. 6팀 <로켓단>\n");
 
 	//일자줄 표현
 	color(WHITE);

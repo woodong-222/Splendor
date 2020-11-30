@@ -6,7 +6,8 @@ void color(int color);
 void GROUND_color(int color);
 void print_jowel(char jowel[]);
 void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[]);
-
+void intro(void);
+void M(int scale);
 
 extern int white;
 extern int blue;
