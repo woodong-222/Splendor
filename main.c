@@ -91,14 +91,13 @@ int main(void)
 		}
 	}
 
-	//보드판 출력
-
-	current_player = 0;
+	//인트로 출력
 	intro();
-
+	
+	//보드판 출력
 	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 
-
+	// 게임 출력
 	game(nob_card, dev_card1, dev_card2, dev_card3);
 		
 
@@ -108,12 +107,11 @@ int main(void)
 
 void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 {
-	int key;
-	int i = 0;
+	int key; //입력받은 키를 저장하는 키 저장 변수
 
-
+	//이러한 양식으로 밑의 게임 메세지 출력
 	printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
-	printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n",current_player + 1);
+	printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n",current_player + 1); // current_player에 +1을 해야 현재의 player가 누구인지 나옴
 	printf("                                                            │ 원하는 활동을 선택해주세요.                                                                                           │\n");
 	printf("                                                            │ 보석 토큰 가져오기  :   A                                                                                             │\n");
 	printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
@@ -128,7 +126,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 97 || key == 65)
 			{
 				//보석 토큰 가져오기
-				M(DO);
+				M(DO); // A키를 입력 했을 때 효과음 '도' 출력
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -142,7 +140,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 115 || key == 83)
 			{
 				//개발 카드 구입하기
-				M(RE);
+				M(RE); // S키를 입력 했을 때 효과음 '레' 출력
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -156,7 +154,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			if (key == 100 || key == 68)
 			{
 				//개발 카드 찜하기
-				M(MI);
+				M(MI); // D키를 입력 했을 때 효과음 '미' 출력
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -249,7 +247,7 @@ void GROUND_color(int color) { // 배경이 ground에 따라 바뀜, 글씨색 변경
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (ground << 4) + LIGHT_GOLD);
 }
 
-void print_void(void) // 빈칸 출력
+void print_void(void) // 보드판 빈칸 출력
 {
 	printf("                                                            │                                                                                                                       │\n");
 }

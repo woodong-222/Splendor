@@ -23,14 +23,14 @@
 #define SI    490 //시
 #define _DO    510 //도
 
-void intro(void)
+void intro(void) // 인트로 출력
 {
-	int key, co = RED;
+	int key, co = RED; // key : 키를 입력받을 함수, co : 인트로의 color변수
 	while(1)
 	{
 		switch (co)
 		{
-		case RED:
+		case RED: // co변수에 색바꿈을 해줌 그전에 빨강이였으면 초록으로 초록이였으면 갈색(보라)로 ... 
 			co = GREEN;
 			break;
 		case GREEN:
@@ -45,7 +45,7 @@ void intro(void)
 		}
 		system("cls");
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n");
-		color(co); 
+		color(co); //위의 switch문에서 바꾼 색 적용
 		printf("\t\t\t\t\t\t---------------------------------------------------------------------------------------------------------------------------------------------\n\n");
 		printf("\t\t\t\t\t\t\t      ::::::::       :::::::::       :::            ::::::::::      ::::    :::       :::::::::       ::::::::       ::::::::: \n");
 		printf("\t\t\t\t\t\t\t    :+:    :+:      :+:    :+:      :+:            :+:             :+:+:   :+:       :+:    :+:     :+:    :+:      :+:    :+:\n");
@@ -57,62 +57,51 @@ void intro(void)
 		printf("\t\t\t\t\t\t---------------------------------------------------------------------------------------------------------------------------------------------\n\n");
 		color(WHITE);
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t ");
-		if (co == RED || co == BROWN)
+		if (co == RED || co == BROWN) // 인트로 색이 빨강, 갈색(보라)일때만 출력(글씨가 깜박이는것을 표현)
 			printf("Enter키를 누르면 게임시작");
 		color(RED);
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*이 게임을 플레이하기 전에 f11을 눌러 전체화면으로 바꿔주세요.*");
 		color(WHITE);
-		switch (co)
-		{
-		case RED:
-			break;
-		case GREEN:
-			break;
-		case BROWN:
-			break;
-		case BLUE:
-			break;
-		}
-		Sleep(1000);
-			if (kbhit())
+		Sleep(1000); // 색의 깜박임의 주기를 늘려줌
+			if (kbhit()) // 엔터키를 입력받았을 때 무한루프 탈출
 			{
 				key = getch();
 				if (key == 13)
 				{
 					system("cls");
-					M(DO);
+					M(DO); // 엔터키 눌렀을 때 효과음
 					break;
 				}
 			}
 	}
 }
 
-void M(int scale)
+void M(int scale) // 효과음 표현 함수 M() 괄호안에 원하는 계이름 입력시 그 음 0.5초 동안 출력
 {
 	switch (scale)
 	{
-	case DO:
+	case DO: //도
 		Beep(DO, 500);
 		break;
-	case RE:
+	case RE: //레
 		Beep(RE, 500);
 		break;
-	case MI:
+	case MI: //미
 		Beep(MI, 500);
 		break;
-	case PA:
+	case PA: //파
 		Beep(PA, 500);
 		break;
-	case SOL:
+	case SOL: //솔
 		Beep(SOL, 500);
 		break;
-	case RA:
+	case RA: //라
 		Beep(RA, 500);
 		break;
-	case SI:
+	case SI: //시
 		Beep(SI, 500);
 		break;
-	case _DO:
+	case _DO: //높은 도
 		Beep(_DO, 500);
 		break;
 	}
