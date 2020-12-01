@@ -92,7 +92,7 @@ int main(void)
 	}
 
 	//檣お煎 轎溘
-	intro();
+	intro(); // 纔蝶お 衛縑 剪蝸葬賊 檜 睡碟虜 輿戮籀葬п 緒艇 啪歜 纔蝶お 陛棟
 	
 	//爾萄っ 轎溘
 	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
@@ -257,9 +257,10 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	int a[5] = { 0, 1, 2, 3, 4 };
 	int b[4] = { 0, 1, 2, 3 };
 	int c[4] = { 0, 1, 2, 3 };
-	int d[4] = { 0, 1,2 , 3 };
+	int d[4] = { 0, 1, 2, 3 };
+	int card_size[3] = { 36, 26, 16 };
 
-	printf("\n\n                                                             Splendor                                                                                             made by. 6ぜ <煎鰍欽>\n");
+	printf("\n\n                                                             Splendor                                                                                           made by. 6ぜ <煎鰍欽>\n");
 
 	//橾濠還 ル⑷
 	color(WHITE);
@@ -533,20 +534,20 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	//綴蘊
 	print_void();
 
-	//敝褶 蘋萄 轎溘
-	printf("                                                            弛                                                     ");
+//敝褶 蘋萄 轎溘
+	printf("                                                            弛                                                               ");
 	color(LIGHT_RED);
 	printf("--敝褶 蘋萄--");
 	color(WHITE);
-	printf("                                                     弛\n");
+	printf("                                           弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
-	printf("忙式式式式式式式式式忖 忙式式式式式式式式式忖 忙式式式式式式式式式忖 忙式式式式式式式式式忖 忙式式式式式式式式式忖                              ");
+	printf("忙式式式式式式式式式忖 忙式式式式式式式式式忖 忙式式式式式式式式式忖 忙式式式式式式式式式忖 忙式式式式式式式式式忖                    ");
 	color(WHITE);
 	printf("弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
 	printf("弛       ");
 	color(WHITE);
@@ -570,9 +571,9 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_RED);
 	printf("弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
 	printf("弛 ");
 	color(WHITE);
@@ -596,9 +597,9 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_RED);
 	printf("    弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
 	printf("弛 ");
 	color(BLUE);
@@ -622,9 +623,9 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_RED);
 	printf("    弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
 	printf("弛 ");
 	color(RED);
@@ -648,9 +649,9 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_RED);
 	printf("    弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
 	printf("弛 ");
 	color(GREEN);
@@ -674,9 +675,9 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_RED);
 	printf("    弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
 	printf("弛 ");
 	color(BROWN);
@@ -700,34 +701,34 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_RED);
 	printf("    弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                                        ");
 	color(LIGHT_RED);
 	printf("戌式式式式式式式式式戎 戌式式式式式式式式式戎 戌式式式式式式式式式戎 戌式式式式式式式式式戎 戌式式式式式式式式式戎 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
 	//綴蘊
 	print_void();
 
 	//偃嫦 蘋萄 轎溘
 	color(WHITE);
-	printf("                                                            弛                                                 ");
+	printf("                                                            弛                                                           ");
 	color(LIGHT_GREEN);
 	printf("-- 1欽啗 偃嫦 蘋萄--");
 	color(WHITE);
-	printf("                                                  弛\n");
+	printf("                                        弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 ");
+	printf("忙式式式式式式式式式式式式忖       忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(WHITE);
 	printf("%d", card1[dev_card1[b[0]]].point);
 	color(LIGHT_GREEN);
@@ -757,17 +758,17 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GREEN);
 	printf("弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("弛            弛 弛            弛 弛            弛 弛            弛 ");
+	printf("弛            弛       弛            弛 弛            弛 弛            弛 弛            弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("弛 ");
+	printf("弛  陴擎 蘋萄 弛       弛 ");
 	color(WHITE);
 	printf("≒ %d", card1[dev_card1[b[0]]].white);
 	color(LIGHT_GREEN);
@@ -785,11 +786,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GREEN);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(BLUE);
 	printf("≒ %d", card1[dev_card1[b[0]]].blue);
 	color(LIGHT_GREEN);
@@ -807,11 +808,14 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GREEN);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("弛 ");
+	if (card_size[0] >= 10)
+		printf("弛     %d濰   弛       弛 ", card_size[0]);
+	else
+		printf("弛     %d濰    弛       弛 ", card_size[0]);
 	color(RED);
 	printf("≒ %d", card1[dev_card1[b[0]]].red);
 	color(LIGHT_GREEN);
@@ -829,11 +833,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GREEN);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(GREEN);
 	printf("≒ %d", card1[dev_card1[b[0]]].green);
 	color(LIGHT_GREEN);
@@ -851,11 +855,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GREEN);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(BROWN);
 	printf("≒ %d", card1[dev_card1[b[0]]].brown);
 	color(LIGHT_GREEN);
@@ -873,32 +877,32 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GREEN);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GREEN);
-	printf("戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 ");
+	printf("戌式式式式式式式式式式式式戎       戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
 
 	
 	color(WHITE);
-	printf("                                                            弛                                                 ");
+	printf("                                                            弛                                                           ");
 	color(LIGHT_GOLD);
 	printf("-- 2欽啗 偃嫦 蘋萄--");
 	color(WHITE);
-	printf("                                                  弛\n");
+	printf("                                        弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 ");
+	printf("忙式式式式式式式式式式式式忖       忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(WHITE);
 	printf("%d", card2[dev_card2[c[0]]].point);
 	color(LIGHT_GOLD);
@@ -928,17 +932,17 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GOLD);
 	printf("弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("弛            弛 弛            弛 弛            弛 弛            弛 ");
+	printf("弛            弛       弛            弛 弛            弛 弛            弛 弛            弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("弛 ");
+	printf("弛  陴擎 蘋萄 弛       弛 ");
 	color(WHITE);
 	printf("≒ %d", card2[dev_card2[c[0]]].white);
 	color(LIGHT_GOLD);
@@ -956,11 +960,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GOLD);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(BLUE);
 	printf("≒ %d", card2[dev_card2[c[0]]].blue);
 	color(LIGHT_GOLD);
@@ -978,11 +982,14 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GOLD);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("弛 ");
+	if (card_size[0] >= 10)
+		printf("弛     %d濰   弛       弛 ", card_size[1]);
+	else
+		printf("弛     %d濰    弛       弛 ", card_size[1]);
 	color(RED);
 	printf("≒ %d", card2[dev_card2[c[0]]].red);
 	color(LIGHT_GOLD);
@@ -1000,11 +1007,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GOLD);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(GREEN);
 	printf("≒ %d", card2[dev_card2[c[0]]].green);
 	color(LIGHT_GOLD);
@@ -1022,11 +1029,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GOLD);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(BROWN);
 	printf("≒ %d", card2[dev_card2[c[0]]].brown);
 	color(LIGHT_GOLD);
@@ -1044,32 +1051,32 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_GOLD);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_GOLD);
-	printf("戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 ");
+	printf("戌式式式式式式式式式式式式戎       戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
 
 
 	color(WHITE);
-	printf("                                                            弛                                                 ");
+	printf("                                                            弛                                                           ");
 	color(LIGHT_BLUE);
 	printf("-- 3欽啗 偃嫦 蘋萄--");
 	color(WHITE);
-	printf("                                                  弛\n");
+	printf("                                        弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 ");
+	printf("忙式式式式式式式式式式式式忖       忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 忙式式式式式式式式式式式式忖 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(WHITE);
 	printf("%d", card3[dev_card3[d[0]]].point);
 	color(LIGHT_BLUE);
@@ -1099,17 +1106,17 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_BLUE);
 	printf("弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("弛            弛 弛            弛 弛            弛 弛            弛 ");
+	printf("弛            弛       弛            弛 弛            弛 弛            弛 弛            弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("弛 ");
+	printf("弛  陴擎 蘋萄 弛       弛 ");
 	color(WHITE);
 	printf("≒ %d", card3[dev_card3[d[0]]].white);
 	color(LIGHT_BLUE);
@@ -1127,11 +1134,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_BLUE);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(BLUE);
 	printf("≒ %d", card3[dev_card3[d[0]]].blue);
 	color(LIGHT_BLUE);
@@ -1149,11 +1156,14 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_BLUE);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("弛 ");
+	if (card_size[0] >= 10)
+		printf("弛     %d濰   弛       弛 ", card_size[2]);
+	else
+		printf("弛     %d濰    弛       弛 ", card_size[2]);
 	color(RED);
 	printf("≒ %d", card3[dev_card3[d[0]]].red);
 	color(LIGHT_BLUE);
@@ -1171,11 +1181,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_BLUE);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(GREEN);
 	printf("≒ %d", card3[dev_card3[d[0]]].green);
 	color(LIGHT_BLUE);
@@ -1193,11 +1203,11 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_BLUE);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("弛 ");
+	printf("弛            弛       弛 ");
 	color(BROWN);
 	printf("≒ %d", card3[dev_card3[d[0]]].brown);
 	color(LIGHT_BLUE);
@@ -1215,13 +1225,13 @@ void boardpan(int nob_card[], int dev_card1[],  int dev_card2[], int dev_card3[]
 	color(LIGHT_BLUE);
 	printf("       弛 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
-	printf("                                                            弛                              ");
+	printf("                                                            弛                   ");
 	color(LIGHT_BLUE);
-	printf("戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 ");
+	printf("戌式式式式式式式式式式式式戎       戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 戌式式式式式式式式式式式式戎 ");
 	color(WHITE);
-	printf("                             弛\n");
+	printf("                   弛\n");
 
 
 	//綴蘊
