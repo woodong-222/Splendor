@@ -1560,3 +1560,95 @@ void print_jowel(char jowel[]) // Ä«µå º¸¼® ÅäÅ« Ãâ·Â
 		printf("¡á");
 	}
 }
+
+void get_jowel(int current_player, int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])//ÇÃ·¹ÀÌ¾î ÅäÅ« ¿¬»ê ¹× ÀüÃ¼ ÅäÅ« ¿¬»ê
+{
+	//Èò,ÆÄ,»¡,ÃÊ,°¥
+	int w = 0;
+	int b = 0;
+	int r = 0;
+	int gr = 0;
+	int br = 0;
+
+	system("cls");
+	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+	printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+	printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+	printf("                                                            ¦¢ º¸¼® ÅäÅ« °¡Á®¿À±â¸¦ ¼±ÅÃÇß½À´Ï´Ù.                                                                                    ¦¢\n");
+	printf("                                                            ¦¢ °¡Á®¿Ã ÅäÅ«À» ¼ø¼­´ë·Î ÀÔ·ÂÇÏ¼¼¿ä.(Èò,ÆÄ,»¡,ÃÊ,°¥,³ë)                                                                 ¦¢\n");
+	printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+	printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+	printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+
+	while (w + b + r + gr + br >= 4)
+	{
+		scanf_s("%d %d %d %d %d", &w, &b, &r, &gr, &br);
+
+		if (w + b + r + gr + br >= 4)
+		{
+			system("cls");
+			boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+			printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+			printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+			printf("                                                            ¦¢ ÅäÅ« °¹¼ö¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù.                                                                                           ¦¢\n");
+			printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+			printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+			printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+			printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+		}
+	}
+
+	int total = w + b + r + gr + br;
+
+	if (total == 2)
+	{
+		while ((white - w < 2) || ((blue - b < 2) || ((red - r) < 2 || ((green - gr < 2) || ((brown - br < 2))))))//ÇÏ³ª¸¦ 2°³°¡Á®¿Ã¶§ ÅäÅ« ÀÜ·® 4°³ ÀÌ»óÀÎÁö °Ë»ç		
+		{
+			system("cls");
+			boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+			printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+			printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+			printf("                                                            ¦¢ ¾î´À ÅäÅ« ÀÜ·®ÀÌ 4°³ ¹Ì¸¸ÀÌ¶ó °¡Á®¿Ã ¼ö ¾ø½À´Ï´Ù.                                                                     ¦¢\n");
+			printf("                                                            ¦¢ ´Ù½Ã ÅäÅ«À» ÀÔ·ÂÇÏ¼¼¿ä.                                                                                               ¦¢\n");
+			printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+			printf("                                                            ¦¢                                                                                                                       ¦¢\n");
+			printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+
+			scanf_s("%d %d %d %d %d", &w, &b, &r, &gr, &br);
+		}
+	}
+
+	total += player[current_player].white + player[current_player].blue + player[current_player].red + player[current_player].green + player[current_player].brown;
+
+	while (total > 10)
+	{
+		int tr_w, tr_b, tr_r, tr_gr, tr_br;//¹ö¸± ÅäÅ« ¹ÞÀ» º¯¼ö
+		system("cls");
+		boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+		printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+		printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+		printf("                                                            ¦¢ Èò»ö:%d   ÆÄ¶õ»ö:%d  »¡°£»ö:%d  ÃÊ·Ï»ö:%d  °¥»ö:%d                                                                    ¦¢\n", w, b, r, gr, br);
+		printf("                                                            ¦¢ ÇÃ·¹ÀÌ¾î ÅäÅ«ÀÌ %d°³¸¦ ÃÊ°úÇÏ¿´½À´Ï´Ù. °¡Á®¿Â ÅäÅ« Áß ¹ö¸± ÅäÅ«À» ÀÔ·ÂÇÏ¼¼¿ä.                                         ¦¢\n", total - 10);
+		printf("                                                            ¦¢ ex) 1 0 0 0 0                                                                                                         ¦¢\n");
+		printf("                                                            ¦¢ (Èò 1 ÆÄ 1 »¡ 1 ÃÊ 0 °¥ 0À» °¡Á®¿ÔÀ»¶§ ÃÑ ÅäÅ«ÀÌ 11°³ÀÎ°æ¿ì)                                                          ¦¢\n");
+		printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+		scanf_s("%d %d %d %d %d", &tr_w, &tr_b, &tr_r, &tr_gr, &tr_br);
+		total -= tr_w + tr_b + tr_r + tr_gr + tr_br;
+		w -= tr_w; b -= tr_b; r -= tr_r; gr -= tr_gr; br -= tr_gr;//°¡Á®¿Â ÅäÅ«¿¡¼­ ³ÑÄ¡´Â ¸¸Å­ ¹ö¸®±â
+	}
+
+
+	white -= w; blue -= b; red -= r; green -= gr; brown -= br;//Ã¢°í¿¡¼­ °¡Á®¿À´Â¸¸Å­ »©±â
+	player[current_player].white += w; player[current_player].blue += b; player[current_player].red += r; player[current_player].green += gr; player[current_player].brown += br;//°¡Á®¿Â ¸¸Å­ ÇÃ·¹ÀÌ¾î ÅäÅ«¿¡ ´õÇÏ±â
+	current_player++;
+
+	system("cls");
+	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+	printf("                                                            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n");
+	printf("                                                            ¦¢ player%dÀÇ Â÷·ÊÀÔ´Ï´Ù.                                                                                                 ¦¢\n", current_player + 1);
+	printf("                                                            ¦¢ ¿øÇÏ´Â È°µ¿À» ¼±ÅÃÇØÁÖ¼¼¿ä.                                                                                           ¦¢\n");
+	printf("                                                            ¦¢ º¸¼® ÅäÅ« °¡Á®¿À±â  :   A                                                                                             ¦¢\n");
+	printf("                                                            ¦¢ °³¹ß Ä«µå ±¸ÀÔÇÏ±â  :   S                                                                                             ¦¢\n");
+	printf("                                                            ¦¢ °³¹ß Ä«µå Â«ÇÏ±â    :   D                                                                                             ¦¢\n");
+	printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
+}
