@@ -92,7 +92,7 @@ int main(void)
 	}
 
 	//ÀÎÆ®·Î Ãâ·Â
-	//intro(); // Å×½ºÆ® ½Ã¿¡ °Å½½¸®¸é ÀÌ ºÎºÐ¸¸ ÁÖ¼®Ã³¸®ÇØ ºü¸¥ °ÔÀÓ Å×½ºÆ® °¡´É
+	intro(); // Å×½ºÆ® ½Ã¿¡ °Å½½¸®¸é ÀÌ ºÎºÐ¸¸ ÁÖ¼®Ã³¸®ÇØ ºü¸¥ °ÔÀÓ Å×½ºÆ® °¡´É
 	
 	//º¸µåÆÇ Ãâ·Â
 	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
@@ -128,7 +128,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			//º¸¼® ÅäÅ« °¡Á®¿À±â
 			if (key == 97 || key == 65) // Å°º¸µå aÅ° ÀÔ·Â
 			{
-				M(DO); // AÅ°¸¦ ÀÔ·Â ÇßÀ» ¶§ È¿°úÀ½ 'µµ' Ãâ·Â
+				M(DO); // È¿°úÀ½ 'µµ' Ãâ·Â
 
 				get_jowel(nob_card, dev_card1, dev_card2, dev_card3); // º¸¼® ÅäÅ« °¡Á®¿À±â ÇÔ¼ö
 
@@ -150,7 +150,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			//°³¹ß Ä«µå ±¸ÀÔÇÏ±â
 			if (key == 115 || key == 83) // Å°º¸µå sÅ° ÀÔ·Â
 			{
-				M(RE); // SÅ°¸¦ ÀÔ·Â ÇßÀ» ¶§ È¿°úÀ½ '·¹' Ãâ·Â
+				M(RE); // È¿°úÀ½ '·¹' Ãâ·Â
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 
@@ -184,7 +184,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			//°³¹ß Ä«µå ÂòÇÏ±â
 			if (key == 100 || key == 68) // Å°º¸µå dÅ° ÀÔ·Â
 			{
-				M(MI); // DÅ°¸¦ ÀÔ·Â ÇßÀ» ¶§ È¿°úÀ½ '¹Ì' Ãâ·Â
+				M(MI); // È¿°úÀ½ '¹Ì' Ãâ·Â
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 
@@ -254,31 +254,37 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 
 			if (key == 113 || key == 81) // Å°º¸µå qÅ° ÀÔ·Â
 			{
+				M(DO); // È¿°úÀ½ 'µµ' Ãâ·Â
 				w += 1;
 				break;
 			}
 			else if (key == 119 || key == 87) // Å°º¸µå wÅ° ÀÔ·Â
 			{
+				M(RE); // È¿°úÀ½ '·¹' Ãâ·Â
 				b += 1;
 				break;
 			}
 			else if (key == 101 || key == 69) // Å°º¸µå eÅ° ÀÔ·Â
 			{
+				M(MI); // È¿°úÀ½ '¹Ì' Ãâ·Â
 				r += 1;
 				break;
 			}
 			else if (key == 114 || key == 82) // Å°º¸µå rÅ° ÀÔ·Â
 			{
+				M(PA); // È¿°úÀ½ 'ÆÄ' Ãâ·Â
 				gr += 1;
 				break;
 			}
 			else if (key == 116 || key == 84) // Å°º¸µå tÅ° ÀÔ·Â
 			{
+				M(SOL); // È¿°úÀ½ '¼Ö' Ãâ·Â
 				pu += 1;
 				break;
 			}
 			else if (key == 122 || key == 90) // Å°º¸µå zÅ° ÀÔ·Â
 			{
+				M(_DO); // È¿°úÀ½ '³ôÀº µµ' Ãâ·Â
 				current_player -= 1; // °ÔÀÓ ÇÔ¼ö¿¡¼­ +1À» ÇØÁÖ¹Ç·Î ´Ù½Ã ÇÏ·Á¸é -1À» ÇØÁà¾ßÇÔ
 				return; //ÇÔ¼ö Á¾·á
 				break;
@@ -318,36 +324,42 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 
 			if (key == 113 || key == 81) // Å°º¸µå qÅ° ÀÔ·Â
 			{
+				M(DO); // È¿°úÀ½ 'µµ' Ãâ·Â
 				w += 1;
 				w2 = 1;
 				break;
 			}
 			else if (key == 119 || key == 87) // Å°º¸µå wÅ° ÀÔ·Â
 			{
+				M(RE); // È¿°úÀ½ '·¹' Ãâ·Â
 				b += 1;
 				b2 = 1;
 				break;
 			}
 			else if (key == 101 || key == 69) // Å°º¸µå eÅ° ÀÔ·Â
 			{
+				M(MI); // È¿°úÀ½ '¹Ì' Ãâ·Â
 				r += 1;
 				r2 = 1;
 				break;
 			}
 			else if (key == 114 || key == 82) // Å°º¸µå rÅ° ÀÔ·Â
 			{
+				M(PA); // È¿°úÀ½ 'ÆÄ' Ãâ·Â
 				gr += 1;
 				gr2 = 1;
 				break;
 			}
 			else if (key == 116 || key == 84) // Å°º¸µå tÅ° ÀÔ·Â
 			{
+				M(SOL); // È¿°úÀ½ '¼Ö' Ãâ·Â
 				pu += 1;
 				pu2 = 1;
 				break;
 			}
 			else if (key == 122 || key == 90) // Å°º¸µå zÅ° ÀÔ·Â
 			{
+				M(_DO); // È¿°úÀ½ 'µµ' Ãâ·Â
 				current_player -= 1; // °ÔÀÓ ÇÔ¼ö¿¡¼­ +1À» ÇØÁÖ¹Ç·Î ´Ù½Ã ÇÏ·Á¸é -1À» ÇØÁà¾ßÇÔ
 				return; // ÇÔ¼ö Á¾·á
 				break;
@@ -405,6 +417,7 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 
 				if (key == 113 || key == 81) // Å°º¸µå qÅ° ÀÔ·Â
 				{
+					M(DO); // È¿°úÀ½ 'µµ' Ãâ·Â
 					w += 1;
 					if (w == 2) // ex)Èò ÆÄ Èò -> ÀÌ·±½ÄÀ¸·Î ÅäÅ«¹Þ´Â´Ù°í ÇßÀ» ½Ã (°°Àº°Å 2¹ø)
 					{
@@ -420,13 +433,14 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 						printf("                                                                                                                ¦¢\n");
 						printf("                                                            ¦¢ ¼­·Î ´Ù¸¥ ÅäÅ«¸¸ °¡Á®¿Ã ¼ö ÀÖ½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.                                                               ¦¢\n");
 						printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
-						Sleep(2000); // 2ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
+						Sleep(3000); // 3ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
 						goto _start;
 					}
 					break;
 				}
 				else if (key == 119 || key == 87) // Å°º¸µå wÅ° ÀÔ·Â
 				{
+					M(RE); // È¿°úÀ½ '·¹' Ãâ·Â
 					b += 1;
 					if (b == 2)// ex)ÆÄ Èò ÆÄ -> ÀÌ·±½ÄÀ¸·Î ÅäÅ«¹Þ´Â´Ù°í ÇßÀ» ½Ã (°°Àº°Å 2¹ø)
 					{
@@ -442,13 +456,14 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 						printf("                                                                                                                ¦¢\n");
 						printf("                                                            ¦¢ ¼­·Î ´Ù¸¥ ÅäÅ«¸¸ °¡Á®¿Ã ¼ö ÀÖ½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.                                                               ¦¢\n");
 						printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
-						Sleep(2000); // 2ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
+						Sleep(3000); // 3ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
 						goto _start;
 					}
 					break;
 				}
 				else if (key == 101 || key == 69) // Å°º¸µå eÅ° ÀÔ·Â
 				{
+					M(MI); // È¿°úÀ½ '¹Ì' Ãâ·Â
 					r += 1;
 					if (r == 2)// ex)»¡ ÆÄ »¡ -> ÀÌ·±½ÄÀ¸·Î ÅäÅ«¹Þ´Â´Ù°í ÇßÀ» ½Ã (°°Àº°Å 2¹ø)
 					{
@@ -464,13 +479,14 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 						printf("                                                                                                                ¦¢\n");
 						printf("                                                            ¦¢ ¼­·Î ´Ù¸¥ ÅäÅ«¸¸ °¡Á®¿Ã ¼ö ÀÖ½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.                                                               ¦¢\n");
 						printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
-						Sleep(2000); // 2ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
+						Sleep(3000); // 3ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
 						goto _start;
 					}
 					break;
 				}
 				else if (key == 114 || key == 82) // Å°º¸µå rÅ° ÀÔ·Â
 				{
+					M(PA); // È¿°úÀ½ 'ÆÄ' Ãâ·Â
 					gr += 1;
 					if (gr == 2)// ex)ÃÊ ÆÄ ÃÊ -> ÀÌ·±½ÄÀ¸·Î ÅäÅ«¹Þ´Â´Ù°í ÇßÀ» ½Ã (°°Àº°Å 2¹ø)
 					{
@@ -486,13 +502,14 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 						printf("                                                                                                                ¦¢\n");
 						printf("                                                            ¦¢ ¼­·Î ´Ù¸¥ ÅäÅ«¸¸ °¡Á®¿Ã ¼ö ÀÖ½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.                                                               ¦¢\n");
 						printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
-						Sleep(2000); // 2ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
+						Sleep(3000); // 3ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
 						goto _start;
 					}
 					break;
 				}
 				else if (key == 116 || key == 84) // Å°º¸µå tÅ° ÀÔ·Â
 				{
+					M(SOL); // È¿°úÀ½ '¼Ö' Ãâ·Â
 					pu += 1;
 					if (pu == 2)// ex)º¸ ÆÄ º¸ -> ÀÌ·±½ÄÀ¸·Î ÅäÅ«¹Þ´Â´Ù°í ÇßÀ» ½Ã (°°Àº°Å 2¹ø)
 					{
@@ -508,13 +525,14 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 						printf("                                                                                                                ¦¢\n");
 						printf("                                                            ¦¢ ¼­·Î ´Ù¸¥ ÅäÅ«¸¸ °¡Á®¿Ã ¼ö ÀÖ½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.                                                               ¦¢\n");
 						printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
-						Sleep(2000); // 2ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
+						Sleep(3000); // 3ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
 						goto _start;
 					}
 					break;
 				}
 				else if (key == 122 || key == 90) // Å°º¸µå zÅ° ÀÔ·Â
 				{
+					M(_DO); // È¿°úÀ½ '³ôÀº µµ' Ãâ·Â
 					current_player -= 1; // °ÔÀÓ ÇÔ¼ö¿¡¼­ +1À» ÇØÁÖ¹Ç·Î ´Ù½Ã ÇÏ·Á¸é -1À» ÇØÁà¾ßÇÔ
 					return; // ÇÔ¼ö Á¾·á
 					break;
@@ -535,7 +553,7 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 		printf("                                                            ¦¢                                                                                                                       ¦¢\n");
 		printf("                                                            ¦¢                                                                                                                       ¦¢\n");
 		printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
-		Sleep(2000); // 2ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
+		Sleep(3000); // 3ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
 		goto _start;
 	}
 
@@ -550,7 +568,7 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 		printf("                                                            ¦¢                                                                                                                       ¦¢\n");
 		printf("                                                            ¦¢                                                                                                                       ¦¢\n");
 		printf("                                                            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n");
-		Sleep(2000); // 2ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
+		Sleep(3000); // 3ÃÊ Áö¿¬ ÈÄ _start·Î µ¹¾Æ°¨
 		goto _start;
 	}
 
@@ -577,31 +595,37 @@ _start: // goto _start; ÀÇ µµÂøÁöÁ¡
 
 				if (key == 113 || key == 81) // Å°º¸µå qÅ° ÀÔ·Â
 				{
+					M(DO); // È¿°úÀ½ 'µµ' Ãâ·Â
 					tr_w = 1;
 					break;
 				}
 				else if (key == 119 || key == 87) // Å°º¸µå wÅ° ÀÔ·Â
 				{
+					M(RE); // È¿°úÀ½ '·¹' Ãâ·Â
 					tr_b = 1;
 					break;
 				}
 				else if (key == 101 || key == 69) // Å°º¸µå eÅ° ÀÔ·Â
 				{
+					M(MI); // È¿°úÀ½ '¹Ì' Ãâ·Â
 					tr_r = 1;
 					break;
 				}
 				else if (key == 114 || key == 82) // Å°º¸µå rÅ° ÀÔ·Â
 				{
+					M(PA); // È¿°úÀ½ 'ÆÄ' Ãâ·Â
 					tr_gr = 1;
 					break;
 				}
 				else if (key == 116 || key == 84) // Å°º¸µå tÅ° ÀÔ·Â
 				{
+					M(SOL); // È¿°úÀ½ '¼Ö' Ãâ·Â
 					tr_pu = 1;
 					break;
 				}
 				else if (key == 122 || key == 90) // Å°º¸µå zÅ° ÀÔ·Â
 				{
+					M(_DO); // È¿°úÀ½ '³ôÀº µµ' Ãâ·Â
 					current_player -= 1; // °ÔÀÓ ÇÔ¼ö¿¡¼­ +1À» ÇØÁÖ¹Ç·Î ´Ù½Ã ÇÏ·Á¸é -1À» ÇØÁà¾ßÇÔ
 					return; // ÇÔ¼ö Á¾·á
 					break;

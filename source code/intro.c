@@ -68,8 +68,8 @@ void intro(void) // 인트로 출력
 				key = getch();
 				if (key == 13)
 				{
-					system("cls");
 					M(DO); // 엔터키 눌렀을 때 효과음
+					system("cls");
 					break;
 				}
 			}
