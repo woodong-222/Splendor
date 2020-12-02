@@ -120,6 +120,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 			{
 				//보석 토큰 가져오기
 				get_jowel(current_player, nob_card, dev_card1, dev_card2, dev_card3);
+				current_player++;
 			}
 			if (key == 115 || key == 83)
 			{
@@ -1540,6 +1541,8 @@ void get_jowel(int current_player, int nob_card[], int dev_card1[], int dev_card
 	int gr = 0;
 	int br = 0;
 
+	if (current_player == 4) current_player = 0;// 한바퀴 돌아 다시 1번 차례일 때 current_player를 0으로 초기화
+
 	system("cls");
 	boardpan(nob_card, dev_card1, dev_card2, dev_card3);
 	printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -1561,11 +1564,13 @@ void get_jowel(int current_player, int nob_card[], int dev_card1[], int dev_card
 			printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
 			printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
 			printf("                                                            │ 토큰 갯수를 초과하였습니다.                                                                                           │\n");
-			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            │ 다시 토큰을 입력하세요.                                                                                               │\n");
 			printf("                                                            │                                                                                                                       │\n");
 			printf("                                                            │                                                                                                                       │\n");
 			printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 		}
+
+		scanf_s("%d %d %d %d %d", &w, &b, &r, &gr, &br);
 	}
 
 	int total = w + b + r + gr + br;
