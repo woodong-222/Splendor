@@ -8,12 +8,13 @@ void print_jowel(char jowel[]); // 카드 보석 토큰 출력 함수 ( 개발 카드 출력 시 
 void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[]); // 게임 함수
 void intro(void); // 인트로 출력 함수
 void M(int scale); // 효과음 출력 함수
+void get_jowel(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[]);//플레이어 토큰 연산 및 전체 토큰 연산
 
 extern int white; // 토큰 창고에 있는 하얀색 토큰
 extern int blue; // 파란색 토큰
 extern int red; // 빨간색 토큰
 extern int green; // 초록색 토큰
-extern int brown; // 갈색(핑크)색 토큰
+extern int purple; // 보색(핑크)색 토큰
 extern int gold; // 황금색 찜 토큰
 extern int current_player; // 현재 플레이어를 나타내는 변수 ( 이 변수값이 0이면 player1 , 1이면 player2, .... -> player (current_player + 1) )
 
@@ -24,7 +25,7 @@ typedef struct {
 	int blue;
 	int red;
 	int green;
-	int brown;
+	int purple;
 }Develop_1;
 
 typedef struct {
@@ -34,7 +35,7 @@ typedef struct {
 	int blue;
 	int red;
 	int green;
-	int brown;
+	int purple;
 }Develop_2;
 
 typedef struct {
@@ -44,7 +45,7 @@ typedef struct {
 	int blue;
 	int red;
 	int green;
-	int brown;
+	int purple;
 }Develop_3;
 
 typedef struct {
@@ -52,7 +53,7 @@ typedef struct {
 	int blue;
 	int red;
 	int green;
-	int brown;
+	int purple;
 }Nob;
 
 typedef struct {
@@ -62,12 +63,12 @@ typedef struct {
 	int blue;
 	int red;
 	int green;
-	int brown;
+	int purple;
 	int gold;
 
 	int card_white; // 각 플레이어의 카드 보석 토큰
 	int card_blue;
 	int card_red;
 	int card_green;
-	int card_brown;
+	int card_purple;
 }Player;
