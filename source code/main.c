@@ -116,7 +116,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 	printf("                                                            │ 원하는 활동을 선택해주세요.                                                                                           │\n");
 	printf("                                                            │ 보석 토큰 가져오기  :   A                                                                                             │\n");
 	printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
-	printf("                                                            │ 개발 카드 짬하기    :   D                                                                                             │\n");
+	printf("                                                            │ 개발 카드 찜하기    :   D                                                                                             │\n");
 	printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
 	while (1)
@@ -142,7 +142,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 				printf("                                                            │ 원하는 활동을 선택해주세요.                                                                                           │\n");
 				printf("                                                            │ 보석 토큰 가져오기  :   A                                                                                             │\n");
 				printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
-				printf("                                                            │ 개발 카드 짬하기    :   D                                                                                             │\n");
+				printf("                                                            │ 개발 카드 찜하기    :   D                                                                                             │\n");
 				printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
 			}
@@ -160,13 +160,13 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 				if (current_player == 4) current_player = 0;// 한바퀴 돌아 다시 1번 차례일 때 current_player를 0으로 초기화
 
 				system("cls");
-				boardpan(nob_card, dev_card1, dev_card2, dev_card3);
+				boardpan(nob_card, dev_card1, dev_card2, dev_card3); 
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
 				printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1); // current_player에 +1을 해야 현재의 player가 누구인지 나옴
 				printf("                                                            │ 원하는 활동을 선택해주세요.                                                                                           │\n");
 				printf("                                                            │ 보석 토큰 가져오기  :   A                                                                                             │\n");
 				printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
-				printf("                                                            │ 개발 카드 짬하기    :   D                                                                                             │\n");
+				printf("                                                            │ 개발 카드 찜하기    :   D                                                                                             │\n");
 				printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
 				/* 출력 예시
@@ -200,7 +200,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[])
 				printf("                                                            │ 원하는 활동을 선택해주세요.                                                                                           │\n");
 				printf("                                                            │ 보석 토큰 가져오기  :   A                                                                                             │\n");
 				printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
-				printf("                                                            │ 개발 카드 짬하기    :   D                                                                                             │\n");
+				printf("                                                            │ 개발 카드 찜하기    :   D                                                                                             │\n");
 				printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
 				/*출력예시
