@@ -14,8 +14,8 @@ extern int white; // 토큰 창고에 있는 하얀색 토큰
 extern int blue; // 파란색 토큰
 extern int red; // 빨간색 토큰
 extern int green; // 초록색 토큰
-extern int purple; // 보색(핑크)색 토큰
-extern int gold; // 황금색 찜 토큰
+extern int purple; // 보라색 토큰
+extern int gold; // 금색 찜 토큰
 extern int current_player; // 현재 플레이어를 나타내는 변수 ( 이 변수값이 0이면 player1 , 1이면 player2, .... -> player (current_player + 1) )
 
 typedef struct {

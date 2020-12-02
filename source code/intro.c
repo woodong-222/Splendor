@@ -30,7 +30,7 @@ void intro(void) // 인트로 출력
 	{
 		switch (co)
 		{
-		case RED: // co변수에 색바꿈을 해줌 그전에 빨강이였으면 초록으로 초록이였으면 보라색로 ... 
+		case RED: // co변수에 색바꿈을 해줌 그전에 빨강이였으면 초록으로 초록이였으면 보라색으로 ... 
 			co = GREEN;
 			break;
 		case GREEN:
@@ -57,7 +57,7 @@ void intro(void) // 인트로 출력
 		printf("\t\t\t\t\t\t---------------------------------------------------------------------------------------------------------------------------------------------\n\n");
 		color(WHITE);
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t ");
-		if (co == RED || co == BROWN) // 인트로 색이 빨강, 보색(보라)일때만 출력(글씨가 깜박이는것을 표현)
+		if (co == RED || co == BROWN) // 인트로 색이 빨강, 보라색일때만 출력(글씨가 깜박이는것을 표현)
 			printf("Enter키를 누르면 게임시작");
 		color(RED);
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*이 게임을 플레이하기 전에 f11을 눌러 전체화면으로 바꿔주세요.*");
