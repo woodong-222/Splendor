@@ -1,7 +1,6 @@
 #pragma once
 
 void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int board_card[]); //보드판 출력함수
-void print_void(void); //보드판의 빈칸 출력함수
 void color(int color); // 검정색 배경, 글씨색 변경 함수
 void GROUND_color(int color); // 지정색 배경, 글씨색 변경 함수
 void print_jowel(char jowel[]); // 카드 보석 토큰 출력 함수 ( 개발 카드 출력 시 사용)
@@ -28,27 +27,8 @@ typedef struct {
 	int red;
 	int green;
 	int purple;
-}Develop_1;
+}Develop;
 
-typedef struct {
-	int point;
-	char value[10];
-	int white;
-	int blue;
-	int red;
-	int green;
-	int purple;
-}Develop_2;
-
-typedef struct {
-	int point;
-	char value[10];
-	int white;
-	int blue;
-	int red;
-	int green;
-	int purple;
-}Develop_3;
 
 typedef struct {
 	int white;

@@ -24,16 +24,24 @@
 #define SI    490 //시
 #define _DO    510 //도
 
-Develop_1 card1[40] = { {1,"purple",0,4,0,0,0}, {1,"red",4,0,0,0,0}, {1,"blue",0,0,4,0,0}, {1,"green",0,0,0,0,4}, {1,"white",0,0,0,4,0}, {0,"blue",1,0,1,1,1}, {0,"blue",1,0,2,2,0}, {0,"blue",0,1,1,3,0}, {0,"blue",1,0,2,1,1}, {0,"blue",0,0,0,0,3}, {0,"blue",0,0,0,2,2}, {0,"blue",1,0,0,0,2}, {0,"green",0,0,3,0,0}, {0,"green",0,2,2,0,0}, {0,"green",0,1,2,0,2}, {0,"green",1,1,1,0,1}, {0,"green",1,1,1,0,2}, {0,"green",2,1,0,0,0}, {0,"green",1,3,0,1,0}, {0,"purple",0,0,1,2,0}, {0,"purple",2,2,1,0,0}, {0,"purple",1,1,1,1,0}, {0,"purple",0,0,0,3,0}, {0,"purple",0,0,3,1,1}, {0,"purple",1,2,1,1,0}, {0,"purple",2,0,0,2,0}, {0,"red",2,1,0,1,1}, {0,"red",2,0,2,0,0}, {0,"red",1,1,0,1,1}, {0,"red",0,2,0,1,0}, {0,"red",3,0,0,0,0}, {0,"red",2,0,0,1,2}, {0,"red",1,0,1,0,3}, {0,"white",0,2,0,0,2}, {0,"white",0,1,1,2,1}, {0,"white",0,1,1,1,1}, {0,"white",0,3,0,0,0}, {0,"white",0,0,2,0,1}, {0,"white",0,2,0,2,1}, {0,"white",3,1,0,0,1} };
-Develop_2 card2[30] = { { 2,"purple",5,0,0,0,0}, {2,"blue",5,3,0,0,0}, {1,"green",2,3,0,0,2}, {2,"white",0,0,4,1,2}, {1,"green",4,2,0,0,1}, {3,"white",6,0,0,0,0}, {2,"white",0,0,5,0,0}, {1,"green",3,0,3,2,0}, {2,"blue",2,0,1,0,4}, {1,"white",0,0,2,3,2}, {1,"red",0,3,2,0,3}, {3,"blue",0,6,0,0,0}, {1,"purple",3,2,0,2,0}, {1,"blue",0,2,0,3,3},{1,"red",2,0,2,0,3}, {2,"purple",0,0,3,5,0}, {2,"green",0,0,0,5,0}, {2,"green",0,5,0,3,0}, {1,"purple",3,0,0,3,2}, {2,"blue",0,5,0,0,0}, {2,"red",0,0,0,0,5}, {1,"blue",0,2,3,2,0}, {2,"red",1,4,0,2,0}, {3,"red",0,0,6,0,0}, {1,"white",2,3,3,0,0}, {3,"green",0,0,0,6,0}, {2,"white",0,0,5,0,3}, {3,"purple",0,0,0,0,6}, {2,"purple",0,1,2,4,0}, {2,"red",3,0,0,0,5} };
-Develop_3 card3[20] = { { 4,"blue",7,0,0,0,0 }, { 4,"green",3,6,0,3,0} , {4,"red",0,0,0,7,0}, {3, "purple",3,3,3,5,0}, {4, "white",3,0,3,0,6}, {3, "green", 5,3,3,0,3}, {4,"purple",0,0,7,0,0},{3,"blue",3,0,3,3,5}, {5,"purple",0,0,7,0,3},{3,"white",0,3,5,3,3},{4,"red",0,3,3,6,0},{5,"red",0,0,3,7,0},{5,"blue",7,3,0,0,0},{4,"white",0,0,6,3,3},{5,"green",0,7,0,3,0}, {4, "purple",0,0,6,3,3}, {4,"green",0,7,0,0,0},{4,"blue",6,3,0,0,3}, {5,"white",3,0,0,0,7}, {3,"red",3,5,0,3,3} };
-Nob nob[10] = { {4,4,0,0,0}, {0,0,4,0,4}, {0,0,4,4,0}, {4,0,3,0,3}, {3,3,0,0,3}, {0,4,0,4,0}, {3,3,0,3,0}, {0,3,3,3,0}, {0,0,3,3,3}, {4,0,0,0,4} };
+Develop card1[41] = { {1,"purple",0,4,0,0,0}, {1,"red",4,0,0,0,0}, {1,"blue",0,0,4,0,0}, {1,"green",0,0,0,0,4}, {1,"white",0,0,0,4,0}, {0,"blue",1,0,1,1,1}, {0,"blue",1,0,2,2,0}, {0,"blue",0,1,1,3,0}, {0,"blue",1,0,2,1,1}, {0,"blue",0,0,0,0,3}, {0,"blue",0,0,0,2,2}, {0,"blue",1,0,0,0,2}, {0,"green",0,0,3,0,0}, {0,"green",0,2,2,0,0}, {0,"green",0,1,2,0,2}, {0,"green",1,1,1,0,1}, {0,"green",1,1,1,0,2}, {0,"green",2,1,0,0,0}, {0,"green",1,3,0,1,0}, {0,"purple",0,0,1,2,0}, {0,"purple",2,2,1,0,0}, {0,"purple",1,1,1,1,0}, {0,"purple",0,0,0,3,0}, {0,"purple",0,0,3,1,1}, {0,"purple",1,2,1,1,0}, {0,"purple",2,0,0,2,0}, {0,"red",2,1,0,1,1}, {0,"red",2,0,2,0,0}, {0,"red",1,1,0,1,1}, {0,"red",0,2,0,1,0}, {0,"red",3,0,0,0,0}, {0,"red",2,0,0,1,2}, {0,"red",1,0,1,0,3}, {0,"white",0,2,0,0,2}, {0,"white",0,1,1,2,1}, {0,"white",0,1,1,1,1}, {0,"white",0,3,0,0,0}, {0,"white",0,0,2,0,1}, {0,"white",0,2,0,2,1}, {0,"white",3,1,0,0,1}, {0} };
+Develop card2[31] = { { 2,"purple",5,0,0,0,0}, {2,"blue",5,3,0,0,0}, {1,"green",2,3,0,0,2}, {2,"white",0,0,4,1,2}, {1,"green",4,2,0,0,1}, {3,"white",6,0,0,0,0}, {2,"white",0,0,5,0,0}, {1,"green",3,0,3,2,0}, {2,"blue",2,0,1,0,4}, {1,"white",0,0,2,3,2}, {1,"red",0,3,2,0,3}, {3,"blue",0,6,0,0,0}, {1,"purple",3,2,0,2,0}, {1,"blue",0,2,0,3,3},{1,"red",2,0,2,0,3}, {2,"purple",0,0,3,5,0}, {2,"green",0,0,0,5,0}, {2,"green",0,5,0,3,0}, {1,"purple",3,0,0,3,2}, {2,"blue",0,5,0,0,0}, {2,"red",0,0,0,0,5}, {1,"blue",0,2,3,2,0}, {2,"red",1,4,0,2,0}, {3,"red",0,0,6,0,0}, {1,"white",2,3,3,0,0}, {3,"green",0,0,0,6,0}, {2,"white",0,0,5,0,3}, {3,"purple",0,0,0,0,6}, {2,"purple",0,1,2,4,0}, {2,"red",3,0,0,0,5}, {0} };
+Develop card3[21] = { { 4,"blue",7,0,0,0,0 }, { 4,"green",3,6,0,3,0} , {4,"red",0,0,0,7,0}, {3, "purple",3,3,3,5,0}, {4, "white",3,0,3,0,6}, {3, "green", 5,3,3,0,3}, {4,"purple",0,0,7,0,0},{3,"blue",3,0,3,3,5}, {5,"purple",0,0,7,0,3},{3,"white",0,3,5,3,3},{4,"red",0,3,3,6,0},{5,"red",0,0,3,7,0},{5,"blue",7,3,0,0,0},{4,"white",0,0,6,3,3},{5,"green",0,7,0,3,0}, {4, "purple",0,0,6,3,3}, {4,"green",0,7,0,0,0},{4,"blue",6,3,0,0,3}, {5,"white",3,0,0,0,7}, {3,"red",3,5,0,3,3}, {0} };
+Nob nob[11] = { {4,4,0,0,0}, {0,0,4,0,4}, {0,0,4,4,0}, {4,0,3,0,3}, {3,3,0,0,3}, {0,4,0,4,0}, {3,3,0,3,0}, {0,3,3,3,0}, {0,0,3,3,3}, {4,0,0,0,4}, {0}};
 Player player[4] = { 0 };
+Develop keep_card[4][3] = { 0 }; // 찜한 카드 저장 ex) keep_card[0][1] = player1이 처음 찜한 카드
 
 int main(void)
 {
-	int nob_card[10], i, temp, x, y, dev_card1[40], dev_card2[30], dev_card3[20];
+	//keep_card[0][0] = card3[0];
+	//keep_card[0][1] = card3[1];
+	//keep_card[0][2] = card3[2];
+	//찜 함수 테스트용
+	int nob_card[10], i, temp, x, y, dev_card1[41], dev_card2[31], dev_card3[21];
 	int board_card[12] = { 0 }; //보드에 펼쳐진 카드의 인덱스를 저장하는 배열
+	dev_card1[40] = 40; // 카드를 다 뽑았을 때
+	dev_card2[30] = 30; // 카드를 다 뽑았을 때
+	dev_card3[20] = 20; // 카드를 다 뽑았을 때
 
 	srand((unsigned int)time(NULL));
 
@@ -100,6 +108,10 @@ int main(void)
 		board_card[i + 4] = dev_card2[i];
 	for (i = 0; i < 4; i++)
 		board_card[i + 8] = dev_card3[i];
+
+	drawn_cards[0] += 4;
+	drawn_cards[1] += 4;
+	drawn_cards[2] += 4;
 
 	//인트로 출력
 	//intro(); // 테스트 시에 거슬리면 이 부분만 주석처리해 빠른 게임 테스트 가능
@@ -775,13 +787,18 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		//카드 혜택 적용
 		if (!strcmp("blue", card1[cardIdx].value))		player[current_player].card_blue++;
-		if (!strcmp("green", card1[cardIdx].value))		player[current_player].card_green++;		
+		if (!strcmp("green", card1[cardIdx].value))		player[current_player].card_green++;
 		if (!strcmp("purple", card1[cardIdx].value))	player[current_player].card_purple++;
 		if (!strcmp("red", card1[cardIdx].value))		player[current_player].card_red++;
 		if (!strcmp("white", card1[cardIdx].value))		player[current_player].card_white++;
 
 		//다음 카드를 보드에 놓기
 		board_card[step1 * 4 + step2] = dev_card1[drawn_cards[step1]];
+
+		if (!(drawn_cards[0] >= 40)) {
+			//뽑은 카드 개수 증가
+			drawn_cards[step1]++;
+		}
 		break;
 	case 1:
 		// 뽑은 카드의 스코어만큼 점수 증가
@@ -803,6 +820,11 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		//다음 카드를 보드에 놓기
 		board_card[step1 * 4 + step2] = dev_card2[drawn_cards[step1]];
+
+		if (!(drawn_cards[1] >= 30)) {
+			//뽑은 카드 개수 증가
+			drawn_cards[step1]++;
+		}
 		break;
 	case 2:
 		// 뽑은 카드의 스코어만큼 점수 증가
@@ -824,18 +846,24 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		//다음 카드를 보드에 놓기
 		board_card[step1 * 4 + step2] = dev_card3[drawn_cards[step1]];
+
+		if (!(drawn_cards[2] >= 20)) {
+			//뽑은 카드 개수 증가
+			drawn_cards[step1]++;
+		}
 		break;
 	}
 
-
-	if (!(drawn_cards[0] >= 36 || drawn_cards[1] >= 26 || drawn_cards[2] >= 16)) {
+	/* 구현 완료 dev_card[40],[30],[20]을 추가해 0,0,0,0,0인 카드를 만들어서 카드를 다 뽑으면 출력하는 식으로 만듦
+	if (!(drawn_cards[0] >= 40 || drawn_cards[1] >= 30 || drawn_cards[2] >= 20)) {
 		//뽑은 카드 개수 증가
 		drawn_cards[step1]++;
 	}
 	else {
 		//덱에 남은 카드가 0인데 그 라인에 있는 카드를 뽑았을 때, 뽑은 카드의 자리에는 0,0,0,0,0이 와야함
-
+		
 	}
+	*/
 
 	//지울것
 	//for (int i = 0; i < 3; i++) {
@@ -893,18 +921,13 @@ void GROUND_color(int color) { // 배경이 ground에 따라 바뀜, 글씨색 �
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (ground << 4) + LIGHT_GOLD);
 }
 
-void print_void(void) // 보드판 빈칸 출력
-{
-	printf("                                                            │                                                                                                                       │\n");
-}
-
 void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int board_card[])
 {
 	int a[5] = { 0, 1, 2, 3, 4 };
 	//int b[4] = { 0, 1, 2, 3 }; //1단계
 	//int c[4] = { 0, 1, 2, 3 }; //2단계
 	//int d[4] = { 0, 1, 2, 3 }; //3단계
-	int card_size[3] = { 36 - drawn_cards[0], 26 - drawn_cards[1], 16 - drawn_cards[2] };
+	int card_size[3] = { 40 - drawn_cards[0], 30 - drawn_cards[1], 20 - drawn_cards[2] };
 	//int card_size[3] = { 36, 26, 16 };
 
 	printf("\n\n                                                             Splendor                                                                                           made by. 6팀 <로켓단>\n");
@@ -929,12 +952,19 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		printf("│");
 		printf(" player2                                                   ");
 		printf("│\n");
+
 		printf("                                                            │ ");
 		GROUND_color(WHITE);
-		printf("점수 : %d                                                  ", player[0].score);
+		if (player[0].score >= 10)
+			printf("점수 : %d                                                 ", player[0].score);
+		else
+			printf("점수 : %d                                                  ", player[0].score);
 		color(WHITE);
 		printf("│");
-		printf(" 점수 : %d                                                  ", player[1].score);
+		if (player[1].score >= 10)
+			printf(" 점수 : %d                                                 ", player[1].score);
+		else
+			printf(" 점수 : %d                                                  ", player[1].score);
 		printf("│");
 		color(WHITE);
 		printf("\n");
@@ -1017,10 +1047,16 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		printf("\n");
 
 		printf("                                                            │ ");
-		printf("점수 : %d                                                  ", player[0].score);
+		if (player[0].score >= 10)
+			printf("점수 : %d                                                 ", player[0].score);
+		else
+			printf("점수 : %d                                                  ", player[0].score);
 		printf("│ ");
 		GROUND_color(WHITE);
-		printf("점수 : %d                                                  ", player[1].score);
+		if (player[1].score >= 10)
+			printf("점수 : %d                                                 ", player[1].score);
+		else
+			printf("점수 : %d                                                  ", player[1].score);
 		color(WHITE);
 		printf("│");
 		printf("\n");
@@ -1091,7 +1127,6 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		printf("│");
 		printf("\n");
 	}
-
 	else // player1, 2 중 누구의 차례도 아닐 때
 	{
 		printf("                                                            │");
@@ -1104,10 +1139,16 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		printf("│\n");
 		printf("                                                            │");
 		color(WHITE);
-		printf(" 점수 : %d                                                  ", player[0].score);
+		if (player[0].score >= 10)
+			printf(" 점수 : %d                                                 ", player[0].score);
+		else
+			printf(" 점수 : %d                                                  ", player[0].score);
 		printf("│");
 		color(WHITE);
-		printf(" 점수 : %d                                                  ", player[1].score);
+		if (player[1].score >= 10)
+			printf(" 점수 : %d                                                 ", player[1].score);
+		else
+			printf(" 점수 : %d                                                  ", player[1].score);
 		printf("│\n");
 		color(WHITE);
 
@@ -1178,8 +1219,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 	printf("┤");
 	printf("\n");
 
-	//빈칸
-	print_void();
+	printf("                                                            │                                                                                                                       │\n");
 
 	//귀족 카드 출력
 	printf("                                                            │                                                               ");
@@ -1356,214 +1396,929 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 	color(WHITE);
 	printf("                   │\n");
 
-	//빈칸
-	print_void();
+	printf("             ┌──────────────────────────────────────────────┤                                                                                                                       │\n");
 
-	//개발 카드 출력
-	color(WHITE);
-	printf("                                                            │                                                           ");
-	color(LIGHT_GREEN);
-	printf("-- 1단계 개발 카드--");
-	color(WHITE);
-	printf("                                        │\n");
+	//개발 카드1 출력
+	//찜한 카드 목록 출력
+	//찜한 카드 -> keep_card[playerx][찜한 순서] -> 만약 player3이 처음 찜을 했다고 하면 current_player == 2 이므로 keep_card[2][0] 이 된다. 두번째 찜은 keep_card[2][1].... 이런식으로 출력됨
+	if (keep_card[current_player][0].value[0] == '\0') //찜한 카드가 없을 때
+	{
+		printf("             │            player%d의 찜한 카드 목록          │                                                           ", current_player + 1);
+		color(LIGHT_GREEN);
+		printf("-- 1단계 개발 카드--");
+		color(WHITE);
+		printf("                                        │\n");
 
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("┌────────────┐       ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐ ");
-	color(WHITE);
-	printf("                   │\n");
+		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		color(LIGHT_GREEN);
+		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
+		color(WHITE);
+		printf("                   │\n");
 
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("│            │       │ ");
-	color(WHITE); 
-	printf("%d", card1[board_card[0]].point);
-	//printf("%d", card1[dev_card1[b[0]]].point);
-	color(LIGHT_GREEN);
-	printf("        ");
-	print_jowel(card1[board_card[0]].value);
-	//print_jowel(card1[dev_card1[b[0]]].value);
-	color(LIGHT_GREEN);
-	printf("│ │ ");
-	color(WHITE);
-	printf("%d", card1[board_card[1]].point);
-	//printf("%d", card1[dev_card1[b[1]]].point);
-	color(LIGHT_GREEN);
-	printf("        ");
-	print_jowel(card1[board_card[1]].value);
-	//print_jowel(card1[dev_card1[b[1]]].value);
-	color(LIGHT_GREEN);
-	printf("│ │ ");
-	color(WHITE);
-	printf("%d", card1[board_card[2]].point);
-	//printf("%d", card1[dev_card1[b[2]]].point);
-	color(LIGHT_GREEN);
-	printf("        ");
-	print_jowel(card1[board_card[2]].value);
-	//print_jowel(card1[dev_card1[b[2]]].value);
-	color(LIGHT_GREEN);
-	printf("│ │ ");
-	color(WHITE);
-	printf("%d", card1[board_card[3]].point);
-	//printf("%d", card1[dev_card1[b[3]]].point);
-	color(LIGHT_GREEN);
-	printf("        ");
-	print_jowel(card1[board_card[3]].value);
-	//print_jowel(card1[dev_card1[b[3]]].value);
-	color(LIGHT_GREEN);
-	printf("│ ");
-	color(WHITE);
-	printf("                   │\n");
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[0]].point);
+		//printf("%d", card1[dev_card1[b[0]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[0]].value);
+		//print_jowel(card1[dev_card1[b[0]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[1]].point);
+		//printf("%d", card1[dev_card1[b[1]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[1]].value);
+		//print_jowel(card1[dev_card1[b[1]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[2]].point);
+		//printf("%d", card1[dev_card1[b[2]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[2]].value);
+		//print_jowel(card1[dev_card1[b[2]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[3]].point);
+		//printf("%d", card1[dev_card1[b[3]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[3]].value);
+		//print_jowel(card1[dev_card1[b[3]]].value);
+		color(LIGHT_GREEN);
+		printf("│ ");
+		color(WHITE);
+		printf("                   │\n");
 
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("│            │       │            │ │            │ │            │ │            │ ");
-	color(WHITE);
-	printf("                   │\n");
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │            │ │            │ │            │ │            │ ");
+		color(WHITE);
+		printf("                   │\n");
 
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("│  남은 카드 │       │ ");
-	color(WHITE);
-	printf("● %d", card1[board_card[0]].white);
-	//printf("● %d", card1[dev_card1[b[0]]].white);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(WHITE);
-	printf("● %d", card1[board_card[1]].white);
-	//printf("● %d", card1[dev_card1[b[1]]].white);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(WHITE);
-	printf("● %d", card1[board_card[2]].white);
-	//printf("● %d", card1[dev_card1[b[2]]].white);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(WHITE);
-	printf("● %d", card1[board_card[3]].white);
-	//printf("● %d", card1[dev_card1[b[3]]].white);
-	color(LIGHT_GREEN);
-	printf("       │ ");
-	color(WHITE);
-	printf("                   │\n");
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│  남은 카드 │       │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[0]].white);
+		//printf("● %d", card1[dev_card1[b[0]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[1]].white);
+		//printf("● %d", card1[dev_card1[b[1]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[2]].white);
+		//printf("● %d", card1[dev_card1[b[2]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[3]].white);
+		//printf("● %d", card1[dev_card1[b[3]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
 
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("│            │       │ ");
-	color(BLUE);
-	printf("● %d", card1[board_card[0]].blue);
-	//printf("● %d", card1[dev_card1[b[0]]].blue);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(BLUE);
-	printf("● %d", card1[board_card[1]].blue);
-	//printf("● %d", card1[dev_card1[b[1]]].blue);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(BLUE);
-	printf("● %d", card1[board_card[2]].blue);
-	//printf("● %d", card1[dev_card1[b[2]]].blue);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(BLUE);
-	printf("● %d", card1[board_card[3]].blue);
-	//printf("● %d", card1[dev_card1[b[3]]].blue);
-	color(LIGHT_GREEN);
-	printf("       │ ");
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[0]].blue);
+		//printf("● %d", card1[dev_card1[b[0]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[1]].blue);
+		//printf("● %d", card1[dev_card1[b[1]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[2]].blue);
+		//printf("● %d", card1[dev_card1[b[2]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[3]].blue);
+		//printf("● %d", card1[dev_card1[b[3]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		if (card_size[0] >= 10)
+			printf("│     %d장   │       │ ", card_size[0]);
+		else
+			printf("│     %d장    │       │ ", card_size[0]);
+		color(RED);
+		printf("● %d", card1[board_card[0]].red);
+		//printf("● %d", card1[dev_card1[b[0]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[1]].red);
+		//printf("● %d", card1[dev_card1[b[1]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[2]].red);
+		//printf("● %d", card1[dev_card1[b[2]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[3]].red);
+		//printf("● %d", card1[dev_card1[b[3]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[0]].green);
+		//printf("● %d", card1[dev_card1[b[0]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[1]].green);
+		//printf("● %d", card1[dev_card1[b[1]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[2]].green);
+		//printf("● %d", card1[dev_card1[b[2]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[3]].green);
+		//printf("● %d", card1[dev_card1[b[3]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[0]].purple);
+		//printf("● %d", card1[dev_card1[b[0]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[1]].purple);
+		//printf("● %d", card1[dev_card1[b[1]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[2]].purple);
+		//printf("● %d", card1[dev_card1[b[2]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[3]].purple);
+		//printf("● %d", card1[dev_card1[b[3]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ └────────────┘ └────────────┘ └────────────┘ │                   ");
+		color(LIGHT_GREEN);
+		printf("└────────────┘       └────────────┘ └────────────┘ └────────────┘ └────────────┘ ");
+		color(WHITE);
+		printf("                   │\n");
+	}
+	else if (keep_card[current_player][0].value[0] != '\0' && keep_card[current_player][1].value[0] == '\0') // 찜한 카드가 한장일 때
+	{
+		printf("             │            player%d의 찜한 카드 목록          │                                                           ", current_player + 1);
+		color(LIGHT_GREEN);
+		printf("-- 1단계 개발 카드--");
+		color(WHITE);
+		printf("                                        │\n");
+
+		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		color(LIGHT_GREEN);
+		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │ %d        ", keep_card[current_player][0].point);
+		print_jowel(keep_card[current_player][0].value);
+		color(WHITE);
+		printf("│ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[0]].point);
+		//printf("%d", card1[dev_card1[b[0]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[0]].value);
+		//print_jowel(card1[dev_card1[b[0]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[1]].point);
+		//printf("%d", card1[dev_card1[b[1]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[1]].value);
+		//print_jowel(card1[dev_card1[b[1]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[2]].point);
+		//printf("%d", card1[dev_card1[b[2]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[2]].value);
+		//print_jowel(card1[dev_card1[b[2]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[3]].point);
+		//printf("%d", card1[dev_card1[b[3]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[3]].value);
+		//print_jowel(card1[dev_card1[b[3]]].value);
+		color(LIGHT_GREEN);
+		printf("│ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │            │ │            │ │            │ │            │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │ ● %d       │ │                   ", keep_card[current_player][0].white);
+		color(LIGHT_GREEN);
+		printf("│  남은 카드 │       │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[0]].white);
+		//printf("● %d", card1[dev_card1[b[0]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[1]].white);
+		//printf("● %d", card1[dev_card1[b[1]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[2]].white);
+		//printf("● %d", card1[dev_card1[b[2]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[3]].white);
+		//printf("● %d", card1[dev_card1[b[3]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │ ");
+		color(BLUE);
+		printf("● %d", keep_card[current_player][0].blue);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[0]].blue);
+		//printf("● %d", card1[dev_card1[b[0]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[1]].blue);
+		//printf("● %d", card1[dev_card1[b[1]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[2]].blue);
+		//printf("● %d", card1[dev_card1[b[2]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[3]].blue);
+		//printf("● %d", card1[dev_card1[b[3]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │ ");
+		color(RED);
+		printf("● %d", keep_card[current_player][0].red);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		if (card_size[0] >= 10)
+			printf("│     %d장   │       │ ", card_size[0]);
+		else
+			printf("│     %d장    │       │ ", card_size[0]);
+		color(RED);
+		printf("● %d", card1[board_card[0]].red);
+		//printf("● %d", card1[dev_card1[b[0]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[1]].red);
+		//printf("● %d", card1[dev_card1[b[1]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[2]].red);
+		//printf("● %d", card1[dev_card1[b[2]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[3]].red);
+		//printf("● %d", card1[dev_card1[b[3]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │ ");
+		color(GREEN);
+		printf("● %d", keep_card[current_player][0].green);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[0]].green);
+		//printf("● %d", card1[dev_card1[b[0]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[1]].green);
+		//printf("● %d", card1[dev_card1[b[1]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[2]].green);
+		//printf("● %d", card1[dev_card1[b[2]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[3]].green);
+		//printf("● %d", card1[dev_card1[b[3]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │ ");
+		color(PURPLE);
+		printf("● %d", keep_card[current_player][0].purple);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[0]].purple);
+		//printf("● %d", card1[dev_card1[b[0]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[1]].purple);
+		//printf("● %d", card1[dev_card1[b[1]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[2]].purple);
+		//printf("● %d", card1[dev_card1[b[2]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[3]].purple);
+		//printf("● %d", card1[dev_card1[b[3]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ └────────────┘ └────────────┘ └────────────┘ │                   ");
+		color(LIGHT_GREEN);
+		printf("└────────────┘       └────────────┘ └────────────┘ └────────────┘ └────────────┘ ");
+		color(WHITE);
+		printf("                   │\n");
+	}
+	else if (keep_card[current_player][0].value[0] != '\0' && keep_card[current_player][1].value[0] != '\0' && keep_card[current_player][2].value[0] == '\0') // 찜한 카드가 2장일 때
+	{
+		printf("             │            player%d의 찜한 카드 목록          │                                                           ", current_player + 1);
+		color(LIGHT_GREEN);
+		printf("-- 1단계 개발 카드--");
+		color(WHITE);
+		printf("                                        │\n");
+
+		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		color(LIGHT_GREEN);
+		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │ %d        ", keep_card[current_player][1].point);
+		print_jowel(keep_card[current_player][1].value);
+		printf("│ │ %d        ", keep_card[current_player][0].point);
+		print_jowel(keep_card[current_player][0].value);
+		color(WHITE);
+		printf("│ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[0]].point);
+		//printf("%d", card1[dev_card1[b[0]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[0]].value);
+		//print_jowel(card1[dev_card1[b[0]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[1]].point);
+		//printf("%d", card1[dev_card1[b[1]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[1]].value);
+		//print_jowel(card1[dev_card1[b[1]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[2]].point);
+		//printf("%d", card1[dev_card1[b[2]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[2]].value);
+		//print_jowel(card1[dev_card1[b[2]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[3]].point);
+		//printf("%d", card1[dev_card1[b[3]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[3]].value);
+		//print_jowel(card1[dev_card1[b[3]]].value);
+		color(LIGHT_GREEN);
+		printf("│ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │            │ │            │ │            │ │            │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │ ● %d       │ │ ● %d       │ │                   ", keep_card[current_player][1].white,keep_card[current_player][0].white);
+		color(LIGHT_GREEN);
+		printf("│  남은 카드 │       │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[0]].white);
+		//printf("● %d", card1[dev_card1[b[0]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[1]].white);
+		//printf("● %d", card1[dev_card1[b[1]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[2]].white);
+		//printf("● %d", card1[dev_card1[b[2]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[3]].white);
+		//printf("● %d", card1[dev_card1[b[3]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │ ");
+		color(BLUE);
+		printf("● %d", keep_card[current_player][1].blue);
+		color(WHITE);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", keep_card[current_player][0].blue);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[0]].blue);
+		//printf("● %d", card1[dev_card1[b[0]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[1]].blue);
+		//printf("● %d", card1[dev_card1[b[1]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[2]].blue);
+		//printf("● %d", card1[dev_card1[b[2]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[3]].blue);
+		//printf("● %d", card1[dev_card1[b[3]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │ ");
+		color(RED);
+		printf("● %d", keep_card[current_player][1].red);
+		color(WHITE);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", keep_card[current_player][0].red);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		if (card_size[0] >= 10)
+			printf("│     %d장   │       │ ", card_size[0]);
+		else
+			printf("│     %d장    │       │ ", card_size[0]);
+		color(RED);
+		printf("● %d", card1[board_card[0]].red);
+		//printf("● %d", card1[dev_card1[b[0]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[1]].red);
+		//printf("● %d", card1[dev_card1[b[1]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[2]].red);
+		//printf("● %d", card1[dev_card1[b[2]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[3]].red);
+		//printf("● %d", card1[dev_card1[b[3]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │ ");
+		color(GREEN);
+		printf("● %d", keep_card[current_player][1].green);
+		color(WHITE);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", keep_card[current_player][0].green);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[0]].green);
+		//printf("● %d", card1[dev_card1[b[0]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[1]].green);
+		//printf("● %d", card1[dev_card1[b[1]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[2]].green);
+		//printf("● %d", card1[dev_card1[b[2]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[3]].green);
+		//printf("● %d", card1[dev_card1[b[3]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │ ");
+		color(PURPLE);
+		printf("● %d", keep_card[current_player][1].purple);
+		color(WHITE);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", keep_card[current_player][0].purple);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[0]].purple);
+		//printf("● %d", card1[dev_card1[b[0]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[1]].purple);
+		//printf("● %d", card1[dev_card1[b[1]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[2]].purple);
+		//printf("● %d", card1[dev_card1[b[2]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[3]].purple);
+		//printf("● %d", card1[dev_card1[b[3]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ └────────────┘ └────────────┘ └────────────┘ │                   ");
+		color(LIGHT_GREEN);
+		printf("└────────────┘       └────────────┘ └────────────┘ └────────────┘ └────────────┘ ");
+		color(WHITE);
+		printf("                   │\n");
+	}
+	else if (keep_card[current_player][0].value[0] != '\0' && keep_card[current_player][1].value[0] != '\0' && keep_card[current_player][2].value[0] != '\0') // 찜한 카드가 3장일 때
+	{
+		printf("             │            player%d의 찜한 카드 목록          │                                                           ", current_player + 1);
+		color(LIGHT_GREEN);
+		printf("-- 1단계 개발 카드--");
+		color(WHITE);
+		printf("                                        │\n");
+
+		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		color(LIGHT_GREEN);
+		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │ %d        ", keep_card[current_player][2].point);
+		print_jowel(keep_card[current_player][2].value);
+		printf("│ │ %d        ", keep_card[current_player][1].point);
+		print_jowel(keep_card[current_player][1].value);
+		printf("│ │ %d        ", keep_card[current_player][0].point);
+		print_jowel(keep_card[current_player][0].value);
+		color(WHITE);
+		printf("│ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[0]].point);
+		//printf("%d", card1[dev_card1[b[0]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[0]].value);
+		//print_jowel(card1[dev_card1[b[0]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[1]].point);
+		//printf("%d", card1[dev_card1[b[1]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[1]].value);
+		//print_jowel(card1[dev_card1[b[1]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[2]].point);
+		//printf("%d", card1[dev_card1[b[2]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[2]].value);
+		//print_jowel(card1[dev_card1[b[2]]].value);
+		color(LIGHT_GREEN);
+		printf("│ │ ");
+		color(WHITE);
+		printf("%d", card1[board_card[3]].point);
+		//printf("%d", card1[dev_card1[b[3]]].point);
+		color(LIGHT_GREEN);
+		printf("        ");
+		print_jowel(card1[board_card[3]].value);
+		//print_jowel(card1[dev_card1[b[3]]].value);
+		color(LIGHT_GREEN);
+		printf("│ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │            │ │            │ │            │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │            │ │            │ │            │ │            │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │ ● %d       │ │ ● %d       │ │ ● %d       │ │                   ", keep_card[current_player][2].white, keep_card[current_player][1].white, keep_card[current_player][0].white);
+		color(LIGHT_GREEN);
+		printf("│  남은 카드 │       │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[0]].white);
+		//printf("● %d", card1[dev_card1[b[0]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[1]].white);
+		//printf("● %d", card1[dev_card1[b[1]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[2]].white);
+		//printf("● %d", card1[dev_card1[b[2]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(WHITE);
+		printf("● %d", card1[board_card[3]].white);
+		//printf("● %d", card1[dev_card1[b[3]]].white);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │ ");
+		color(BLUE);
+		printf("● %d", keep_card[current_player][2].blue);
+		color(WHITE);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", keep_card[current_player][1].blue);
+		color(WHITE);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", keep_card[current_player][0].blue);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[0]].blue);
+		//printf("● %d", card1[dev_card1[b[0]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[1]].blue);
+		//printf("● %d", card1[dev_card1[b[1]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[2]].blue);
+		//printf("● %d", card1[dev_card1[b[2]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", card1[board_card[3]].blue);
+		//printf("● %d", card1[dev_card1[b[3]]].blue);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │ ");
+		color(RED);
+		printf("● %d", keep_card[current_player][2].red);
+		color(WHITE);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", keep_card[current_player][1].red);
+		color(WHITE);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", keep_card[current_player][0].red);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		if (card_size[0] >= 10)
+			printf("│     %d장   │       │ ", card_size[0]);
+		else
+			printf("│     %d장    │       │ ", card_size[0]);
+		color(RED);
+		printf("● %d", card1[board_card[0]].red);
+		//printf("● %d", card1[dev_card1[b[0]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[1]].red);
+		//printf("● %d", card1[dev_card1[b[1]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[2]].red);
+		//printf("● %d", card1[dev_card1[b[2]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", card1[board_card[3]].red);
+		//printf("● %d", card1[dev_card1[b[3]]].red);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │ ");
+		color(GREEN);
+		printf("● %d", keep_card[current_player][2].green);
+		color(WHITE);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", keep_card[current_player][1].green);
+		color(WHITE);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", keep_card[current_player][0].green);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[0]].green);
+		//printf("● %d", card1[dev_card1[b[0]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[1]].green);
+		//printf("● %d", card1[dev_card1[b[1]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[2]].green);
+		//printf("● %d", card1[dev_card1[b[2]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", card1[board_card[3]].green);
+		//printf("● %d", card1[dev_card1[b[3]]].green);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ │ ");
+		color(PURPLE);
+		printf("● %d", keep_card[current_player][2].purple);
+		color(WHITE);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", keep_card[current_player][1].purple);
+		color(WHITE);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", keep_card[current_player][0].purple);
+		color(WHITE);
+		printf("       │ │                   ");
+		color(LIGHT_GREEN);
+		printf("│            │       │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[0]].purple);
+		//printf("● %d", card1[dev_card1[b[0]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[1]].purple);
+		//printf("● %d", card1[dev_card1[b[1]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[2]].purple);
+		//printf("● %d", card1[dev_card1[b[2]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", card1[board_card[3]].purple);
+		//printf("● %d", card1[dev_card1[b[3]]].purple);
+		color(LIGHT_GREEN);
+		printf("       │ ");
+		color(WHITE);
+		printf("                   │\n");
+
+		printf("             │ └────────────┘ └────────────┘ └────────────┘ │                   ");
+		color(LIGHT_GREEN);
+		printf("└────────────┘       └────────────┘ └────────────┘ └────────────┘ └────────────┘ ");
+		color(WHITE);
+		printf("                   │\n");
+	}
+
 	color(WHITE);
-	printf("                   │\n");
-
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	if (card_size[0] >= 10)
-		printf("│     %d장   │       │ ", card_size[0]);
-	else
-		printf("│     %d장    │       │ ", card_size[0]);
-	color(RED);
-	printf("● %d", card1[board_card[0]].red);
-	//printf("● %d", card1[dev_card1[b[0]]].red);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(RED);
-	printf("● %d", card1[board_card[1]].red);
-	//printf("● %d", card1[dev_card1[b[1]]].red);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(RED);
-	printf("● %d", card1[board_card[2]].red);
-	//printf("● %d", card1[dev_card1[b[2]]].red);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(RED);
-	printf("● %d", card1[board_card[3]].red);
-	//printf("● %d", card1[dev_card1[b[3]]].red);
-	color(LIGHT_GREEN);
-	printf("       │ ");
-	color(WHITE);
-	printf("                   │\n");
-
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("│            │       │ ");
-	color(GREEN);
-	printf("● %d", card1[board_card[0]].green);
-	//printf("● %d", card1[dev_card1[b[0]]].green);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(GREEN);
-	printf("● %d", card1[board_card[1]].green);
-	//printf("● %d", card1[dev_card1[b[1]]].green);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(GREEN);
-	printf("● %d", card1[board_card[2]].green);
-	//printf("● %d", card1[dev_card1[b[2]]].green);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(GREEN);
-	printf("● %d", card1[board_card[3]].green);
-	//printf("● %d", card1[dev_card1[b[3]]].green);
-	color(LIGHT_GREEN);
-	printf("       │ ");
-	color(WHITE);
-	printf("                   │\n");
-
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("│            │       │ ");
-	color(PURPLE);
-	printf("● %d", card1[board_card[0]].purple);
-	//printf("● %d", card1[dev_card1[b[0]]].purple);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(PURPLE);
-	printf("● %d", card1[board_card[1]].purple);
-	//printf("● %d", card1[dev_card1[b[1]]].purple);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(PURPLE);
-	printf("● %d", card1[board_card[2]].purple);
-	//printf("● %d", card1[dev_card1[b[2]]].purple);
-	color(LIGHT_GREEN);
-	printf("       │ │ ");
-	color(PURPLE);
-	printf("● %d", card1[board_card[3]].purple);
-	//printf("● %d", card1[dev_card1[b[3]]].purple);
-	color(LIGHT_GREEN);
-	printf("       │ ");
-	color(WHITE);
-	printf("                   │\n");
-
-	printf("                                                            │                   ");
-	color(LIGHT_GREEN);
-	printf("└────────────┘       └────────────┘ └────────────┘ └────────────┘ └────────────┘ ");
-	color(WHITE);
-	printf("                   │\n");
-
-
-
-	color(WHITE);
-	printf("                                                            │                                                           ");
+	printf("             └──────────────────────────────────────────────┤                                                           ");
 	color(LIGHT_GOLD);
 	printf("-- 2단계 개발 카드--");
 	color(WHITE);
@@ -1571,7 +2326,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 	printf("                                                            │                   ");
 	color(LIGHT_GOLD);
-	printf("┌────────────┐       ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐ ");
+	printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
 	color(WHITE);
 	printf("                   │\n");
 
@@ -1773,7 +2528,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 	printf("                                                            │                   ");
 	color(LIGHT_BLUE);
-	printf("┌────────────┐       ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐ ");
+	printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
 	color(WHITE);
 	printf("                   │\n");
 
@@ -1964,9 +2719,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 	color(WHITE);
 	printf("                   │\n");
 
-
-	//빈칸
-	print_void();
+	printf("                                                            │                                                                                                                       │\n");
 
 	//토큰 창고 보유 토큰 출력
 	printf("                                                            │                                     ● %d    ", white);
@@ -1983,8 +2736,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 	color(WHITE);
 	printf("                                      │\n");
 
-	//빈칸
-	print_void();
+	printf("                                                            │                                                                                                                       │\n");
 
 	//일자줄 표현
 	color(WHITE);
@@ -1996,7 +2748,6 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		printf("─");
 	printf("┤");
 	printf("\n");
-
 
 	if (current_player == 2) // player3 차례일때
 	{
@@ -2011,10 +2762,16 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		printf("                                                            │ ");
 		GROUND_color(WHITE);
-		printf("점수 : %d                                                  ", player[2].score);
+		if (player[2].score >= 10)
+			printf("점수 : %d                                                 ", player[2].score);
+		else
+			printf("점수 : %d                                                  ", player[2].score);
 		color(WHITE);
 		printf("│");
-		printf(" 점수 : %d                                                  ", player[3].score);
+		if (player[3].score >= 10)
+			printf(" 점수 : %d                                                 ", player[3].score);
+		else
+			printf(" 점수 : %d                                                  ", player[3].score);
 		printf("│\n");
 		color(WHITE);
 
@@ -2097,10 +2854,16 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		printf("\n");
 
 		printf("                                                            │ ");
-		printf("점수 : %d                                                  ", player[2].score);
+		if (player[2].score >= 10)
+			printf("점수 : %d                                                 ", player[2].score);
+		else
+			printf("점수 : %d                                                  ", player[2].score);
 		printf("│ ");
 		GROUND_color(WHITE);
-		printf("점수 : %d                                                  ", player[3].score);
+		if (player[3].score >= 10)
+			printf("점수 : %d                                                 ", player[3].score);
+		else
+			printf("점수 : %d                                                  ", player[3].score);
 		color(WHITE);
 		printf("│");
 		printf("\n");
@@ -2170,7 +2933,6 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		printf("│");
 		printf("\n");
 	}
-
 	else // player3, 4 중 누구의 차례도 아닐 때
 	{
 		printf("                                                            │");
@@ -2184,10 +2946,16 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		printf("                                                            │");
 		color(WHITE);
-		printf(" 점수 : %d                                                  ", player[2].score);
+		if (player[2].score >= 10)
+			printf(" 점수 : %d                                                 ", player[2].score);
+		else
+			printf(" 점수 : %d                                                  ", player[2].score);
 		printf("│");
 		color(WHITE);
-		printf(" 점수 : %d                                                  ", player[3].score);
+		if (player[3].score >= 10)
+			printf(" 점수 : %d                                                 ", player[3].score);
+		else
+			printf(" 점수 : %d                                                  ", player[3].score);
 		printf("│\n");
 		color(WHITE);
 
@@ -2267,27 +3035,34 @@ void print_jowel(char jowel[]) // 카드 보석 토큰 출력
 		printf("■");
 	}
 
-	if (!strcmp(jowel, "blue"))
+	else if (!strcmp(jowel, "blue"))
 	{
 		color(BLUE);
 		printf("■");
 	}
 
-	if (!strcmp(jowel, "red"))
+	else if (!strcmp(jowel, "red"))
 	{
 		color(RED);
 		printf("■");
 	}
 
-	if (!strcmp(jowel, "green"))
+	else if (!strcmp(jowel, "green"))
 	{
 		color(GREEN);
 		printf("■");
 	}
 
-	if (!strcmp(jowel, "purple"))
+	else if (!strcmp(jowel, "purple"))
 	{
 		color(PURPLE);
 		printf("■");
 	}
+
+	else
+	{
+		printf("  ");
+	}
+
+	color(WHITE);
 }
