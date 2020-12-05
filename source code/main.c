@@ -42,7 +42,7 @@ int main(void)
 	//찜 함수 테스트용
 
 	// 카드 구매 테스트용
-	///*
+	/*
 	for (int mm = 0; mm < 4; mm++)
 	{
 		player[mm].white = 100;
@@ -51,7 +51,7 @@ int main(void)
 		player[mm].green = 100;
 		player[mm].purple = 100;
 	}
-	//*/
+	*/
 
 	int nob_card[10], i, temp, x, y, dev_card1[41], dev_card2[31], dev_card3[21];
 	int board_card[12] = { 0 }; //보드에 펼쳐진 카드의 인덱스를 저장하는 배열
