@@ -42,7 +42,7 @@ int main(void)
 	//찜 함수 테스트용
 
 	// 카드 구매 테스트용
-	/*
+	///*
 	for (int mm = 0; mm < 4; mm++)
 	{
 		player[mm].white = 100;
@@ -51,7 +51,7 @@ int main(void)
 		player[mm].green = 100;
 		player[mm].purple = 100;
 	}
-	*/
+	//*/
 
 	int nob_card[10], i, temp, x, y, dev_card1[41], dev_card2[31], dev_card3[21];
 	int board_card[12] = { 0 }; //보드에 펼쳐진 카드의 인덱스를 저장하는 배열
@@ -464,6 +464,11 @@ _start: // goto _start; 의 도착지점
 		token = 1;
 	}
 
+	if (((white > 0) + (blue > 0) + (red > 0) + (green > 0) + (purple > 0)) == 2)
+	{
+		token = 1;
+	}
+
 	if (token == 0) //같은 코인을 받지 않았을 때
 	{
 		system("cls");
@@ -673,9 +678,9 @@ _start: // goto _start; 의 도착지점
 		boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
 		printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
 		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
-		printf("                                                            │ 흰색:%d   파란색:%d  빨간색:%d  초록색:%d  보라색:%d                                                                       │\n", w, b, r, gr, pu);
+		printf("                                                            │ 흰색:%d   파란색:%d  빨간색:%d  초록색:%d  보라색:%d                                                                       │\n", player[current_player].white + w - tr_w, player[current_player].blue + b - tr_b, player[current_player].red + r - tr_r, player[current_player].green + gr - tr_gr, player[current_player].purple + pu - tr_pu);
 		printf("                                                            │ 플레이어 토큰이 %d개를 초과하였습니다.                                                                                 │\n", total - 10);
-		printf("                                                            │ 가져온 토큰 중 버릴 토큰을 입력하세요.(흰 : Q, 파 : W, 빨 : E, 초 : R, 보 : T, 활동 선택창으로 넘어가기 : Z)          │\n");
+		printf("                                                            │ 가진 토큰 중 버릴 토큰을 입력하세요.(흰 : Q, 파 : W, 빨 : E, 초 : R, 보 : T, 활동 선택창으로 넘어가기 : Z)            │\n");
 		printf("                                                            │                                                                                                                       │\n");
 		printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
@@ -726,19 +731,19 @@ _start: // goto _start; 의 도착지점
 		}
 
 		//-1이 안되도록 방지
-		if (w - tr_w < 0)
+		if (player[current_player].white + w - tr_w < 0)
 			tr_w = 0;
-		if (b - tr_b < 0)
+		if (player[current_player].blue + b - tr_b < 0)
 			tr_b = 0;
-		if (r - tr_r < 0)
+		if (player[current_player].red + r - tr_r < 0)
 			tr_r = 0;
-		if (gr - tr_gr < 0)
+		if (player[current_player].green + gr - tr_gr < 0)
 			tr_gr = 0;
-		if (pu - tr_pu < 0)
+		if (player[current_player].purple + pu - tr_pu < 0)
 			tr_pu = 0;
 
 		//가져온 토큰에서 넘치는 만큼 버리기
-		w -= tr_w; b -= tr_b; r -= tr_r; gr -= tr_gr; pu -= tr_pu;
+		player[current_player].white -= tr_w; player[current_player].blue -= tr_b; player[current_player].red -= tr_r; player[current_player].green -= tr_gr; player[current_player].purple -= tr_pu;
 		total -= tr_w + tr_b + tr_r + tr_gr + tr_pu;
 		tr_w = 0; tr_b = 0; tr_r = 0; tr_gr = 0; tr_pu = 0;
 	}
@@ -981,7 +986,7 @@ _getcard: // goto _getcard의 도착위치
 		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
 		printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
 		printf("                                                            │ 찜 토큰이 %d개 있습니다. 몇개 사용하시겠습니까?                                                                        │\n", player[current_player].gold);
-		printf("                                                            │ ( 1개 : 1, 2개 : 2, 3개 : 3, 사용하지 않음 : 0, 활동 선택창으로 넘어가기 : Z )                                        │\n");
+		printf("                                                            │ ( 1개 : 1, 2개 : 2, 3개 : 3, 사용하지 않음 : X, 활동 선택창으로 넘어가기 : Z )                                        │\n");
 		printf("                                                            │                                                                                                                       │\n");
 		printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
@@ -1009,7 +1014,7 @@ _getcard: // goto _getcard의 도착위치
 					num_gold = 3;
 					break;
 				}
-				else if (key == 'c' || key == 'C') // 키보드 c키 입력
+				else if (key == 'x' || key == 'X') // 키보드 x키 입력
 				{
 					M(SI); // 효과음 '시' 출력
 					num_gold = 0;
