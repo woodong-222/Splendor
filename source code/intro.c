@@ -2,7 +2,6 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <time.h>
-#include <conio.h>
 #include "Header.h"
 
 #define WHITE 7
@@ -64,9 +63,9 @@ void intro(void) // 인트로 출력
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*이 게임을 플레이하기 전에 f11을 눌러 전체화면으로 바꿔주세요.*");
 		color(WHITE);
 		Sleep(1000); // 색의 깜박임의 주기를 늘려줌
-		if (_kbhit()) // 엔터키를 입력받았을 때 무한루프 탈출
+		if (kbhit()) // 엔터키를 입력받았을 때 무한루프 탈출
 		{
-			key = _getch();
+			key = getch();
 			if (key == 13)
 			{
 				M(DO); // 엔터키 눌렀을 때 효과음

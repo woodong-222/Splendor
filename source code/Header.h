@@ -10,6 +10,7 @@ void M(int scale); // 효과음 출력 함수
 void get_jowel(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int board_card[]); // 플레이어 토큰 연산 및 전체 토큰 연산
 void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int board_card[]); // 개발 카드 구입하기 함수
 int check_winner(void); // 우승자 판단 함수
+void book_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int board_card[]);
 
 extern int white; // 토큰 창고에 있는 하얀색 토큰
 extern int blue; // 파란색 토큰
