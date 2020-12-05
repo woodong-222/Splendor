@@ -1,8 +1,11 @@
-﻿#include <stdio.h>
+﻿#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
 #include <time.h>
 #include <conio.h>
+#include <string.h>
 #include "Header.h"
 
 #define WHITE 7
@@ -24,9 +27,9 @@
 #define SI    490 //시
 #define _DO    510 //도
 
-Develop card1[41] = { {1,"purple",0,4,0,0,0}, {1,"red",4,0,0,0,0}, {1,"blue",0,0,4,0,0}, {1,"green",0,0,0,0,4}, {1,"white",0,0,0,4,0}, {0,"blue",1,0,1,1,1}, {0,"blue",1,0,2,2,0}, {0,"blue",0,1,1,3,0}, {0,"blue",1,0,2,1,1}, {0,"blue",0,0,0,0,3}, {0,"blue",0,0,0,2,2}, {0,"blue",1,0,0,0,2}, {0,"green",0,0,3,0,0}, {0,"green",0,2,2,0,0}, {0,"green",0,1,2,0,2}, {0,"green",1,1,1,0,1}, {0,"green",1,1,1,0,2}, {0,"green",2,1,0,0,0}, {0,"green",1,3,0,1,0}, {0,"purple",0,0,1,2,0}, {0,"purple",2,2,1,0,0}, {0,"purple",1,1,1,1,0}, {0,"purple",0,0,0,3,0}, {0,"purple",0,0,3,1,1}, {0,"purple",1,2,1,1,0}, {0,"purple",2,0,0,2,0}, {0,"red",2,1,0,1,1}, {0,"red",2,0,2,0,0}, {0,"red",1,1,0,1,1}, {0,"red",0,2,0,1,0}, {0,"red",3,0,0,0,0}, {0,"red",2,0,0,1,2}, {0,"red",1,0,1,0,3}, {0,"white",0,2,0,0,2}, {0,"white",0,1,1,2,1}, {0,"white",0,1,1,1,1}, {0,"white",0,3,0,0,0}, {0,"white",0,0,2,0,1}, {0,"white",0,2,0,2,1}, {0,"white",3,1,0,0,1}, {0} };
-Develop card2[31] = { { 2,"purple",5,0,0,0,0}, {2,"blue",5,3,0,0,0}, {1,"green",2,3,0,0,2}, {2,"white",0,0,4,1,2}, {1,"green",4,2,0,0,1}, {3,"white",6,0,0,0,0}, {2,"white",0,0,5,0,0}, {1,"green",3,0,3,2,0}, {2,"blue",2,0,1,0,4}, {1,"white",0,0,2,3,2}, {1,"red",0,3,2,0,3}, {3,"blue",0,6,0,0,0}, {1,"purple",3,2,0,2,0}, {1,"blue",0,2,0,3,3},{1,"red",2,0,2,0,3}, {2,"purple",0,0,3,5,0}, {2,"green",0,0,0,5,0}, {2,"green",0,5,0,3,0}, {1,"purple",3,0,0,3,2}, {2,"blue",0,5,0,0,0}, {2,"red",0,0,0,0,5}, {1,"blue",0,2,3,2,0}, {2,"red",1,4,0,2,0}, {3,"red",0,0,6,0,0}, {1,"white",2,3,3,0,0}, {3,"green",0,0,0,6,0}, {2,"white",0,0,5,0,3}, {3,"purple",0,0,0,0,6}, {2,"purple",0,1,2,4,0}, {2,"red",3,0,0,0,5}, {0} };
-Develop card3[21] = { { 4,"blue",7,0,0,0,0 }, { 4,"green",3,6,0,3,0} , {4,"red",0,0,0,7,0}, {3, "purple",3,3,3,5,0}, {4, "white",3,0,3,0,6}, {3, "green", 5,3,3,0,3}, {4,"purple",0,0,7,0,0},{3,"blue",3,0,3,3,5}, {5,"purple",0,0,7,0,3},{3,"white",0,3,5,3,3},{4,"red",0,3,3,6,0},{5,"red",0,0,3,7,0},{5,"blue",7,3,0,0,0},{4,"white",0,0,6,3,3},{5,"green",0,7,0,3,0}, {4, "purple",0,0,6,3,3}, {4,"green",0,7,0,0,0},{4,"blue",6,3,0,0,3}, {5,"white",3,0,0,0,7}, {3,"red",3,5,0,3,3}, {0} };
+Develop card1[41] = { {1,"purple",0,4,0,0,0}, {1,"red",4,0,0,0,0}, {1,"blue",0,0,4,0,0}, {1,"green",0,0,0,0,4}, {1,"white",0,0,0,4,0}, {0,"blue",1,0,1,1,1}, {0,"blue",1,0,2,2,0}, {0,"blue",0,1,1,3,0}, {0,"blue",1,0,2,1,1}, {0,"blue",0,0,0,0,3}, {0,"blue",0,0,0,2,2}, {0,"blue",1,0,0,0,2}, {0,"green",0,0,3,0,0}, {0,"green",0,2,2,0,0}, {0,"green",0,1,2,0,2}, {0,"green",1,1,1,0,1}, {0,"green",1,1,1,0,2}, {0,"green",2,1,0,0,0}, {0,"green",1,3,0,1,0}, {0,"purple",0,0,1,2,0}, {0,"purple",1,1,1,1,0}, {0,"purple",0,0,0,3,0}, {0,"purple",0,0,3,1,1}, {0,"purple",1,2,1,1,0}, {0,"purple",2,0,0,2,0}, {0,"red",2,1,0,1,1}, {0,"red",2,0,2,0,0}, {0,"red",1,1,0,1,1}, {0,"red",0,2,0,1,0}, {0,"red",2,0,0,1,2}, {0,"red",1,0,1,0,3}, {0,"white",0,2,0,0,2}, {0,"white",0,1,1,2,1}, {0,"white",0,1,1,1,1}, {0,"white",0,3,0,0,0}, {0,"white",0,0,2,0,1}, {0,"white",0,2,0,2,1}, {0,"white",3,1,0,0,1}, {0,"red",3,0,0,0,0}, {0,"purple",2,2,1,0,0}, {0,"NULL",0,0,0,0,0} };
+Develop card2[31] = { { 2,"purple",5,0,0,0,0}, {2,"blue",5,3,0,0,0}, {1,"green",2,3,0,0,2}, {2,"white",0,0,4,1,2}, {1,"green",4,2,0,0,1}, {3,"white",6,0,0,0,0}, {2,"white",0,0,5,0,0}, {1,"green",3,0,3,2,0}, {2,"blue",2,0,1,0,4}, {1,"white",0,0,2,3,2}, {1,"red",0,3,2,0,3}, {3,"blue",0,6,0,0,0}, {1,"purple",3,2,0,2,0}, {1,"blue",0,2,0,3,3},{1,"red",2,0,2,0,3}, {2,"purple",0,0,3,5,0}, {2,"green",0,0,0,5,0}, {2,"green",0,5,0,3,0}, {1,"purple",3,0,0,3,2}, {2,"blue",0,5,0,0,0}, {2,"red",0,0,0,0,5}, {1,"blue",0,2,3,2,0}, {2,"red",1,4,0,2,0}, {3,"red",0,0,6,0,0}, {1,"white",2,3,3,0,0}, {3,"green",0,0,0,6,0}, {2,"white",0,0,5,0,3}, {3,"purple",0,0,0,0,6}, {2,"purple",0,1,2,4,0}, {2,"red",3,0,0,0,5}, {0,"NULL",0,0,0,0,0} };
+Develop card3[21] = { { 4,"blue",7,0,0,0,0 }, { 4,"green",3,6,0,3,0} , {4,"red",0,0,0,7,0}, {3, "purple",3,3,3,5,0}, {4, "white",3,0,3,0,6}, {3, "green", 5,3,3,0,3}, {4,"purple",0,0,7,0,0},{3,"blue",3,0,3,3,5}, {5,"purple",0,0,7,0,3},{3,"white",0,3,5,3,3},{4,"red",0,3,3,6,0},{5,"red",0,0,3,7,0},{5,"blue",7,3,0,0,0},{4,"white",0,0,6,3,3},{5,"green",0,7,0,3,0}, {4, "purple",0,0,6,3,3}, {4,"green",0,7,0,0,0},{4,"blue",6,3,0,0,3}, {5,"white",3,0,0,0,7}, {3,"red",3,5,0,3,3}, {0,"NULL",0,0,0,0,0} };
 Nob nob[11] = { {4,4,0,0,0}, {0,0,4,0,4}, {0,0,4,4,0}, {4,0,3,0,3}, {3,3,0,0,3}, {0,4,0,4,0}, {3,3,0,3,0}, {0,3,3,3,0}, {0,0,3,3,3}, {4,0,0,0,4}, {0}};
 Player player[4] = { 0 };
 Develop keep_card[4][3] = { 0 }; // 찜한 카드 저장 ex) keep_card[0][1] = player1이 처음 찜한 카드
@@ -35,9 +38,22 @@ int main(void)
 {
 	//keep_card[0][0] = card3[0];
 	//keep_card[0][1] = card3[1];
-	//keep_card[0][2] = card3[2];
+	//keep_card[0][2] =card3[2];
 	//찜 함수 테스트용
-	int nob_card[10], i, temp, x, y, dev_card1[41], dev_card2[31], dev_card3[21];
+
+	// 카드 구매 테스트용
+	/*
+	for (int mm = 0; mm < 4; mm++)
+	{
+		player[mm].white = 100;
+		player[mm].blue = 100;
+		player[mm].red = 100;
+		player[mm].green = 100;
+		player[mm].purple = 100;
+	}
+	*/
+
+	int nob_card[11], i, temp, x, y, dev_card1[41], dev_card2[31], dev_card3[21];
 	int board_card[12] = { 0 }; //보드에 펼쳐진 카드의 인덱스를 저장하는 배열
 	dev_card1[40] = 40; // 카드를 다 뽑았을 때
 	dev_card2[30] = 30; // 카드를 다 뽑았을 때
@@ -109,9 +125,9 @@ int main(void)
 	for (i = 0; i < 4; i++)
 		board_card[i + 8] = dev_card3[i];
 
-	drawn_cards[0] += 4;
-	drawn_cards[1] += 4;
-	drawn_cards[2] += 4;
+	drawn_cards[0] += 4; // 개발카드1에서 카드 4장 세팅
+	drawn_cards[1] += 4; // 개발카드2에서 카드 4장 세팅
+	drawn_cards[2] += 4; // 개발카드3에서 카드 4장 세팅
 
 	//인트로 출력
 	//intro(); // 테스트 시에 거슬리면 이 부분만 주석처리해 빠른 게임 테스트 가능
@@ -122,6 +138,21 @@ int main(void)
 	// 게임 출력
 	game(nob_card, dev_card1, dev_card2, dev_card3, board_card);
 
+	//게임 끝 
+	//게임 승리 출력
+	system("cls");
+	boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+	printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+	printf("                                                            │                                                                                                                       │\n");
+	printf("                                                            │                                                                                                                       │\n");
+	printf("                                                            │                                                   ");
+	color(LIGHT_RED);
+	printf("PLAYER %d WINNER!!", (check_winner() + 1) ); // 우승자 판단 함수
+	color(WHITE);
+	printf("                                                   │\n");
+	printf("                                                            │                                                                                                                       │\n");
+	printf("                                                            │                                                                                                                       │\n");
+	printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
 	system("pause");
 	return 0;
@@ -156,6 +187,26 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int
 				current_player++;
 				if (current_player == 4) current_player = 0;// 한바퀴 돌아 다시 1번 차례일 때 current_player를 0으로 초기화
 
+				if ((player[0].score >= 15 || player[1].score >= 15 || player[2].score >= 15 || player[3].score >= 15) && current_player == 0) // 게임 끝
+				{
+					return;
+				}
+
+				if (player[0].score >= 15 || player[1].score >= 15 || player[2].score >= 15 || player[3].score >= 15) // 누군가가 15점을 넘겼을 때 마지막 턴이라고 공지
+				{
+
+					system("cls");
+					boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+					printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+					printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1); // current_player에 +1을 해야 현재의 player가 누구인지 나옴
+					printf("                                                            │ 15점이 넘은 player가 있습니다.                                                                                        │\n");
+					printf("                                                            │ 마지막 턴이므로 신중히 플레이해주세요.                                                                                 │\n");
+					printf("                                                            │                                                                                                                       │\n");
+					printf("                                                            │                                                                                                                       │\n");
+					printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+					Sleep(4000); // 4초 지연 후 
+				}
+
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -165,6 +216,8 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int
 				printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
 				printf("                                                            │ 개발 카드 찜하기    :   D                                                                                             │\n");
 				printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+				
+
 
 			}
 
@@ -178,6 +231,26 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int
 				current_player++;
 				if (current_player == 4) current_player = 0;// 한바퀴 돌아 다시 1번 차례일 때 current_player를 0으로 초기화
 
+				if ((player[0].score >= 15 || player[1].score >= 15 || player[2].score >= 15 || player[3].score >= 15) && current_player == 0) // 게임끝
+				{
+					return;
+				}
+
+				if (player[0].score >= 15 || player[1].score >= 15 || player[2].score >= 15 || player[3].score >= 15) // 누군가가 15점을 넘겼을 때 마지막 턴이라고 공지
+				{
+
+					system("cls");
+					boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+					printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+					printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1); // current_player에 +1을 해야 현재의 player가 누구인지 나옴
+					printf("                                                            │ 15점이 넘은 player가 있습니다.                                                                                        │\n");
+					printf("                                                            │ 마지막 턴이므로 신중히 플레이해주세요.                                                                                 │\n");
+					printf("                                                            │                                                                                                                       │\n");
+					printf("                                                            │                                                                                                                       │\n");
+					printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+					Sleep(4000); // 4초 지연 후 
+				}
+
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -187,6 +260,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int
 				printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
 				printf("                                                            │ 개발 카드 찜하기    :   D                                                                                             │\n");
 				printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+				
 			}
 
 			//개발 카드 찜하기
@@ -199,6 +273,26 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int
 				current_player++;
 				if (current_player == 4) current_player = 0;// 한바퀴 돌아 다시 1번 차례일 때 current_player를 0으로 초기화
 
+				if ((player[0].score >= 15 || player[1].score >= 15 || player[2].score >= 15 || player[3].score >= 15) && current_player == 0) // 게임끝
+				{
+					return;
+				}
+
+				if (player[0].score >= 15 || player[1].score >= 15 || player[2].score >= 15 || player[3].score >= 15) // 누군가가 15점을 넘겼을 때 마지막 턴이라고 공지
+				{
+
+					system("cls");
+					boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+					printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+					printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1); // current_player에 +1을 해야 현재의 player가 누구인지 나옴
+					printf("                                                            │ 15점이 넘은 player가 있습니다.                                                                                        │\n");
+					printf("                                                            │ 마지막 턴이므로 신중히 플레이해주세요.                                                                                 │\n");
+					printf("                                                            │                                                                                                                       │\n");
+					printf("                                                            │                                                                                                                       │\n");
+					printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+					Sleep(4000); // 4초 지연 후 
+				}
+
 				system("cls");
 				boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -208,6 +302,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int
 				printf("                                                            │ 개발 카드 구입하기  :   S                                                                                             │\n");
 				printf("                                                            │ 개발 카드 찜하기    :   D                                                                                             │\n");
 				printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+
 
 				/*출력예시
 				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
@@ -220,6 +315,7 @@ void game(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[], int
 				*/
 			}
 		}
+
 	}
 }
 
@@ -669,6 +765,27 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 	int step2 = 0; // 개발 카드 순서
 	int cardIdx = 0; // 뽑은 카드 인덱스
 	int key; // 입력받은 키값 저장 변수
+	int num_gold = 0; // 찜토큰을 색토큰으로 변환할 토큰의 개수
+	int use_gold = 0; // 사용한 찜토큰의 수
+	int change_color[2] = { 0 }; // 찜토큰을 입력 받을 때 입력 받은 찜토큰의 색 출력 0:흰, 1:파, 2:빨, 3:초, 4:보
+	int check = 0; // 선택한 카드가 있는지 확인
+	Nob change_gold = { 0 }; // 찜토큰 -> 색토큰 갯수 저장
+
+_getcard: // goto _getcard의 도착위치
+	// goto문 때문에 모든 변수들을 0으로 초기화
+	step1 = 0;
+	step2 = 0;
+	cardIdx = 0;
+	num_gold = 0;
+	use_gold = 0;
+	change_gold.white = 0;
+	change_gold.blue = 0;
+	change_gold.red = 0;
+	change_gold.green = 0;
+	change_gold.purple = 0;
+	change_color[0] = 0;
+	change_color[1] = 0;
+	check = 0;
 
 	system("cls");
 	boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
@@ -676,7 +793,7 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 	printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
 	printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
 	printf("                                                            │ 구입할 개발 카드의 단계를 입력해주세요.                                                                               │\n");
-	printf("                                                            │ ( 1단계 개발 카드 : 1, 2단계 개발 카드 : 2, 3단계 개발 카드 : 3, 활동 선택창으로 넘어가기 : Z )                       │\n");
+	printf("                                                            │ ( 1단계 개발 카드 : 1, 2단계 개발 카드 : 2, 3단계 개발 카드 : 3, 찜 카드 : 4, 활동 선택창으로 넘어가기 : Z )          │\n");
 	printf("                                                            │                                                                                                                       │\n");
 	printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
 
@@ -704,54 +821,10 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 				step1 = 2;
 				break;
 			}
-			else if (key == 122 || key == 90) // 키보드 z키 입력
-			{
-				M(_DO); // 효과음 '높은 도' 출력
-				current_player -= 1; // 게임 함수에서 +1을 해주므로 다시 하려면 -1을 해줘야함
-				return; //함수 종료
-				break;
-			}
-		}
-	}
-
-	system("cls");
-	boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
-	printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
-	printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
-	printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
-	printf("                                                            │ %d단계에서 구입할 개발 카드의 순서를 입력해주세요.                                                                     │\n", step1 + 1);
-	printf("                                                            │ ( 1번째 개발 카드 : 1, 2번째 개발 카드 : 2, 3번째 개발 카드 : 3, 4번째 개발 카드 : 4, 활동 선택창으로 넘어가기 : Z )  │\n");
-	printf("                                                            │                                                                                                                       │\n");
-	printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
-	
-	while (1)
-	{
-		if (_kbhit())
-		{
-			key = _getch();
-
-			if (key == '1') // 키보드 1키 입력
-			{
-				M(DO); // 효과음 '도' 출력
-				step2 = 0;
-				break;
-			}
-			else if (key == '2') // 키보드 2키 입력
-			{
-				M(RE); // 효과음 '레' 출력
-				step2 = 1;
-				break;
-			}
-			else if (key == '3') // 키보드 3키 입력
-			{
-				M(MI); // 효과음 '미' 출력
-				step2 = 2;
-				break;
-			}
 			else if (key == '4') // 키보드 4키 입력
 			{
 				M(PA); // 효과음 '파' 출력
-				step2 = 3;
+				step1 = 3;
 				break;
 			}
 			else if (key == 122 || key == 90) // 키보드 z키 입력
@@ -764,12 +837,506 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		}
 	}
 
-	cardIdx = board_card[step1 * 4 + step2];
+	if (step1 == 3) // 선택한 단계가 찜 카드일 때
+	{
+		system("cls");
+		boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+		printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+		printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+		printf("                                                            │ 찜 카드에서 구입할 개발 카드의 순서를 입력해주세요.                                                                    │\n");
+		printf("                                                            │ ( 1번째 개발 카드 : 1, 2번째 개발 카드 : 2, 3번째 개발 카드 : 3, 활동 선택창으로 넘어가기 : Z )                        │\n");
+		printf("                                                            │                                                                                                                       │\n");
+		printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+
+		while (1)
+		{
+			if (_kbhit())
+			{
+				key = _getch();
+
+				if (key == '1') // 키보드 1키 입력
+				{
+					M(DO); // 효과음 '도' 출력
+					step2 = 0;
+					break;
+				}
+				else if (key == '2') // 키보드 2키 입력
+				{
+					M(RE); // 효과음 '레' 출력
+					step2 = 1;
+					break;
+				}
+				else if (key == '3') // 키보드 3키 입력
+				{
+					M(MI); // 효과음 '미' 출력
+					step2 = 2;
+					break;
+				}
+				else if (key == 122 || key == 90) // 키보드 z키 입력
+				{
+					M(_DO); // 효과음 '높은 도' 출력
+					current_player -= 1; // 게임 함수에서 +1을 해주므로 다시 하려면 -1을 해줘야함
+					return; //함수 종료
+					break;
+				}
+			}
+		}
+	}
+
+	else // 찜 카드를 고른게 아니라면
+	{
+		system("cls");
+		boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+		printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+		printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+		printf("                                                            │ %d단계에서 구입할 개발 카드의 순서를 입력해주세요.                                                                     │\n", step1 + 1);
+		printf("                                                            │ ( 1번째 개발 카드 : 1, 2번째 개발 카드 : 2, 3번째 개발 카드 : 3, 4번째 개발 카드 : 4, 활동 선택창으로 넘어가기 : Z )  │\n");
+		printf("                                                            │                                                                                                                       │\n");
+		printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+
+		while (1)
+		{
+			if (_kbhit())
+			{
+				key = _getch();
+
+				if (key == '1') // 키보드 1키 입력
+				{
+					M(DO); // 효과음 '도' 출력
+					step2 = 0;
+					break;
+				}
+				else if (key == '2') // 키보드 2키 입력
+				{
+					M(RE); // 효과음 '레' 출력
+					step2 = 1;
+					break;
+				}
+				else if (key == '3') // 키보드 3키 입력
+				{
+					M(MI); // 효과음 '미' 출력
+					step2 = 2;
+					break;
+				}
+				else if (key == '4') // 키보드 4키 입력
+				{
+					M(PA); // 효과음 '파' 출력
+					step2 = 3;
+					break;
+				}
+				else if (key == 122 || key == 90) // 키보드 z키 입력
+				{
+					M(_DO); // 효과음 '높은 도' 출력
+					current_player -= 1; // 게임 함수에서 +1을 해주므로 다시 하려면 -1을 해줘야함
+					return; //함수 종료
+					break;
+				}
+			}
+		}
+	}
+
+	if(step1 != 3)	cardIdx = board_card[step1 * 4 + step2]; // 찜 카드를 고른게 아니라면
+
+	switch (step1) // 선택한 카드가 있는지 확인
+	{
+	case 0: // 개발카드1
+		if (!strcmp(card1[cardIdx].value, "NULL"))
+		{
+			check = 1;
+		}
+		break;
+	case 1: // 개발카드2
+		if (!strcmp(card2[cardIdx].value, "NULL"))
+		{
+			check = 1;
+		}
+		break;
+	case 2: // 개발카드2
+		if (!strcmp(card3[cardIdx].value, "NULL"))
+		{
+			check = 1;
+		}
+		break;
+	case 3: //찜 카드
+		if (keep_card[current_player][step2].value[0] == '\0') // 이거 확실한건 아님
+		{
+			check = 1;
+		}
+		break;
+	}
+
+	if (check == 1) // 선택한 카드가 없다면
+	{
+		system("cls");
+		boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+		printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+		printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+		printf("                                                            │ 선택한 카드가 없습니다. 다시 선택해주세요.                                                                            │\n");
+		printf("                                                            │                                                                                                                       │\n");
+		printf("                                                            │                                                                                                                       │\n");
+		printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+		Sleep(4000);
+		goto _getcard;
+	}
+
+	if (player[current_player].gold > 0) // 찜토큰이 1개 이상 있다면 찜 토큰을 몇개 사용할 건지 질문
+	{
+		system("cls");
+		boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+		printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+		printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+		printf("                                                            │ 찜 토큰이 %d개 있습니다. 몇개 사용하시겠습니까?                                                                        │\n", player[current_player].gold);
+		printf("                                                            │ ( 1개 : 1, 2개 : 2, 3개 : 3, 사용하지 않음 : 0, 활동 선택창으로 넘어가기 : Z )                                        │\n");
+		printf("                                                            │                                                                                                                       │\n");
+		printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+
+		while (1)
+		{
+			if (_kbhit())
+			{
+				key = _getch();
+
+				if (key == '1') // 키보드 1키 입력
+				{
+					M(DO); // 효과음 '도' 출력
+					num_gold = 1;
+					break;
+				}
+				else if (key == '2') // 키보드 2키 입력
+				{
+					M(RE); // 효과음 '레' 출력
+					num_gold = 2;
+					break;
+				}
+				else if (key == '3') // 키보드 3키 입력
+				{
+					M(MI); // 효과음 '미' 출력
+					num_gold = 3;
+					break;
+				}
+				else if (key == 'c' || key == 'C') // 키보드 c키 입력
+				{
+					M(SI); // 효과음 '시' 출력
+					num_gold = 0;
+					break;
+				}
+				else if (key == 122 || key == 90) // 키보드 z키 입력
+				{
+					M(_DO); // 효과음 '높은 도' 출력
+					current_player -= 1; // 게임 함수에서 +1을 해주므로 다시 하려면 -1을 해줘야함
+					return; //함수 종료
+					break;
+				}
+			}
+		}
+		if (num_gold > 0) // 찜토큰을 1개 이상 사용한다고 했을 때
+		{
+			system("cls");
+			boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+			printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+			printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+			printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+			printf("                                                            │ %d개의 바꿀 보석 토큰을 입력해 주세요. (흰 : Q, 파 : W, 빨 : E, 초 : R, 보 : T, 활동 선택창으로 넘어가기 : Z)          │\n", num_gold);
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+
+			while (1)
+			{
+				if (_kbhit())
+				{
+					key = _getch();
+
+					if (key == 113 || key == 81) // 키보드 q키 입력
+					{
+						M(DO); // 효과음 '도' 출력
+						change_gold.white += 1;
+						change_color[0] = 0;
+						break;
+					}
+					else if (key == 119 || key == 87) // 키보드 w키 입력
+					{
+						M(RE); // 효과음 '레' 출력
+						change_gold.blue += 1;
+						change_color[0] = 1;
+						break;
+					}
+					else if (key == 101 || key == 69) // 키보드 e키 입력
+					{
+						M(MI); // 효과음 '미' 출력
+						change_gold.red += 1;
+						change_color[0] = 2;
+						break;
+					}
+					else if (key == 114 || key == 82) // 키보드 r키 입력
+					{
+						M(PA); // 효과음 '파' 출력
+						change_gold.green += 1;
+						change_color[0] = 3;
+						break;
+					}
+					else if (key == 116 || key == 84) // 키보드 t키 입력
+					{
+						M(SOL); // 효과음 '솔' 출력
+						change_gold.purple += 1;
+						change_color[0] = 4;
+						break;
+					}
+					else if (key == 122 || key == 90) // 키보드 z키 입력
+					{
+						M(_DO); // 효과음 '높은 도' 출력
+						current_player -= 1; // 게임 함수에서 +1을 해주므로 다시 하려면 -1을 해줘야함
+						return; //함수 종료
+						break;
+					}
+				}
+			}
+
+			if (num_gold > 1) // 찜토큰을 2개 이상 쓴다고 했을 때
+			{
+				system("cls");
+				boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+				printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+				printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+				printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+				printf("                                                            │ %d개의 바꿀 보석 토큰을 입력해 주세요. (흰 : Q, 파 : W, 빨 : E, 초 : R, 보 : T, 활동 선택창으로 넘어가기 : Z)          │\n", num_gold);
+				printf("                                                            │ ");
+				if (change_color[0] == 0)
+					color(WHITE);
+				if (change_color[0] == 1)
+					color(BLUE);
+				if (change_color[0] == 2)
+					color(RED);
+				if (change_color[0] == 3)
+					color(GREEN);
+				if (change_color[0] == 4)
+					color(PURPLE);
+				printf("● ");
+				color(WHITE);
+				printf("                                                                                                                  │\n");
+				printf("                                                            │                                                                                                                       │\n");
+				printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+
+				while (1)
+				{
+					if (_kbhit())
+					{
+						key = _getch();
+
+						if (key == 113 || key == 81) // 키보드 q키 입력
+						{
+							M(DO); // 효과음 '도' 출력
+							change_gold.white += 1;
+							change_color[1] = 0;
+							break;
+						}
+						else if (key == 119 || key == 87) // 키보드 w키 입력
+						{
+							M(RE); // 효과음 '레' 출력
+							change_gold.blue += 1;
+							change_color[1] = 1;
+							break;
+						}
+						else if (key == 101 || key == 69) // 키보드 e키 입력
+						{
+							M(MI); // 효과음 '미' 출력
+							change_gold.red += 1;
+							change_color[1] = 2;
+							break;
+						}
+						else if (key == 114 || key == 82) // 키보드 r키 입력
+						{
+							M(PA); // 효과음 '파' 출력
+							change_gold.green += 1;
+							change_color[1] = 3;
+							break;
+						}
+						else if (key == 116 || key == 84) // 키보드 t키 입력
+						{
+							M(SOL); // 효과음 '솔' 출력
+							change_gold.purple += 1;
+							change_color[1] = 4;
+							break;
+						}
+						else if (key == 122 || key == 90) // 키보드 z키 입력
+						{
+							M(_DO); // 효과음 '높은 도' 출력
+							current_player -= 1; // 게임 함수에서 +1을 해주므로 다시 하려면 -1을 해줘야함
+							return; //함수 종료
+							break;
+						}
+					}
+				}
+
+				if (num_gold > 2) // 찜토큰을 3개 사용한다고 했을 때
+				{
+					system("cls");
+					boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+					printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+					printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+					printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+					printf("                                                            │ %d개의 바꿀 보석 토큰을 입력해 주세요. (흰 : Q, 파 : W, 빨 : E, 초 : R, 보 : T, 활동 선택창으로 넘어가기 : Z)          │\n", num_gold);
+					printf("                                                            │ ");
+					if (change_color[0] == 0)
+						color(WHITE);
+					if (change_color[0] == 1)
+						color(BLUE);
+					if (change_color[0] == 2)
+						color(RED);
+					if (change_color[0] == 3)
+						color(GREEN);
+					if (change_color[0] == 4)
+						color(PURPLE);
+					printf("● ");
+					if (change_color[1] == 0)
+						color(WHITE);
+					if (change_color[1] == 1)
+						color(BLUE);
+					if (change_color[1] == 2)
+						color(RED);
+					if (change_color[1] == 3)
+						color(GREEN);
+					if (change_color[1] == 4)
+						color(PURPLE);
+					printf("● ");
+					color(WHITE);
+					printf("                                                                                                                │\n");
+					printf("                                                            │                                                                                                                       │\n");
+					printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+
+					while (1)
+					{
+						if (_kbhit())
+						{
+							key = _getch();
+
+							if (key == 113 || key == 81) // 키보드 q키 입력
+							{
+								M(DO); // 효과음 '도' 출력
+								change_gold.white += 1;
+								break;
+							}
+							else if (key == 119 || key == 87) // 키보드 w키 입력
+							{
+								M(RE); // 효과음 '레' 출력
+								change_gold.blue += 1;
+								break;
+							}
+							else if (key == 101 || key == 69) // 키보드 e키 입력
+							{
+								M(MI); // 효과음 '미' 출력
+								change_gold.red += 1;
+								break;
+							}
+							else if (key == 114 || key == 82) // 키보드 r키 입력
+							{
+								M(PA); // 효과음 '파' 출력
+								change_gold.green += 1;
+								break;
+							}
+							else if (key == 116 || key == 84) // 키보드 t키 입력
+							{
+								M(SOL); // 효과음 '솔' 출력
+								change_gold.purple += 1;
+								break;
+							}
+							else if (key == 122 || key == 90) // 키보드 z키 입력
+							{
+								M(_DO); // 효과음 '높은 도' 출력
+								current_player -= 1; // 게임 함수에서 +1을 해주므로 다시 하려면 -1을 해줘야함
+								return; //함수 종료
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	Nob total_token = { player[current_player].white + player[current_player].card_white + change_gold.white, player[current_player].blue + player[current_player].card_blue + change_gold.blue, player[current_player].red + player[current_player].card_red + change_gold.red, player[current_player].green + player[current_player].card_green + change_gold.green, player[current_player].purple + player[current_player].card_purple + change_gold.purple }; // 보석토큰 + 카드토큰 + 변환한 찜토큰
+
+	switch (step1) // 토큰개수 부족 출력
+	{
+	case 0:
+		if (total_token.white < card1[cardIdx].white || total_token.blue < card1[cardIdx].blue || total_token.red < card1[cardIdx].red || total_token.green < card1[cardIdx].green || total_token.purple < card1[cardIdx].purple)
+		{
+			system("cls");
+			boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+			printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+			printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+			printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+			printf("                                                            │ 선택한 카드를 구입하기 위한 토큰이 부족합니다. 다시 선택해주세요.                                                     │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+			Sleep(4000);
+			goto _getcard;
+		}
+		break;
+	case 1:
+		if (total_token.white < card2[cardIdx].white || total_token.blue < card2[cardIdx].blue || total_token.red < card2[cardIdx].red || total_token.green < card2[cardIdx].green || total_token.purple < card2[cardIdx].purple)
+		{
+			system("cls");
+			boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+			printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+			printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+			printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+			printf("                                                            │ 선택한 카드를 구입하기 위한 토큰이 부족합니다. 다시 선택해주세요.                                                     │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+			Sleep(4000);
+			goto _getcard;
+		}
+		break;
+	case 2:
+		if (total_token.white < card3[cardIdx].white || total_token.blue < card3[cardIdx].blue || total_token.red < card3[cardIdx].red || total_token.green < card3[cardIdx].green || total_token.purple < card3[cardIdx].purple)
+		{
+			system("cls");
+			boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+			printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+			printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+			printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+			printf("                                                            │ 선택한 카드를 구입하기 위한 토큰이 부족합니다. 다시 선택해주세요.                                                     │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+			Sleep(4000);
+			goto _getcard;
+		}
+		break;
+	case 3:
+		if (total_token.white < keep_card[current_player][cardIdx].white || total_token.blue < keep_card[current_player][cardIdx].blue || total_token.red < keep_card[current_player][cardIdx].red || total_token.green < keep_card[current_player][cardIdx].green || total_token.purple < keep_card[current_player][cardIdx].purple)
+		{
+			system("cls");
+			boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
+			printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
+			printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
+			printf("                                                            │ 개발 카드 구입하기를 선택했습니다.                                                                                    │\n");
+			printf("                                                            │ 선택한 카드를 구입하기 위한 토큰이 부족합니다. 다시 선택해주세요.                                                     │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            │                                                                                                                       │\n");
+			printf("                                                            └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘\n");
+			Sleep(4000);
+			goto _getcard;
+		}
+		break;
+	}
+
+
+
 
 	//printf("drawn_cards[0] : %d, drawn_cards[1] : %d, drawn_cards[2] : %d", drawn_cards[0], drawn_cards[1], drawn_cards[2]);
 	//getchar();
 	//예외처리 하는 곳
 	
+
 
 
 	switch (step1)
@@ -778,12 +1345,71 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		// 뽑은 카드의 스코어만큼 점수 증가
 		player[current_player].score += card1[cardIdx].point; 
 
+		/*
 		//가격만큼 보석 감소 <- *******예외처리해줘야됨*******
 		player[current_player].blue -= card1[cardIdx].blue;
 		player[current_player].green -= card1[cardIdx].green;
 		player[current_player].purple -= card1[cardIdx].purple;
 		player[current_player].red -= card1[cardIdx].red;
 		player[current_player].white -= card1[cardIdx].white;
+		*/
+
+		//토큰 계산
+		if (card1[cardIdx].white > player[current_player].card_white) // 필요한 토큰의 개수가 카드 토큰을 넘어설때
+		{
+			change_gold.white -= (card1[cardIdx].white - player[current_player].card_white); // 변환한 찜토큰에 지불해야하는 토큰 빼기
+			if (change_gold.white < 0) // 만약 변환한 찜토큰만으로 카드를 구입 못했을 때
+			{
+				player[current_player].white += change_gold.white; // 보석토큰을 부족한만큼 가져가기
+				white -= change_gold.white; // 토큰창고에 토큰 넣어두기
+			}
+			else if (change_gold.white > 0) // 변환한 찜토큰만으로 카드를 구입했을 떄
+				use_gold += change_gold.white; // 사용한 찜토큰의 개수 확인
+		}
+		if (card1[cardIdx].blue > player[current_player].card_blue)
+		{
+			change_gold.blue -= (card1[cardIdx].blue - player[current_player].card_blue);
+			if (change_gold.blue < 0)
+			{
+				player[current_player].blue += change_gold.blue;
+				blue -= change_gold.blue;
+			}
+			else if (change_gold.blue > 0)
+				use_gold += change_gold.blue;
+		}
+		if (card1[cardIdx].red > player[current_player].card_red)
+		{
+			change_gold.red -= (card1[cardIdx].red - player[current_player].card_red);
+			if (change_gold.red < 0)
+			{
+				player[current_player].red += change_gold.red;
+				red -= change_gold.red;
+			}
+			else if (change_gold.red > 0)
+				use_gold += change_gold.red;
+		}
+		if (card1[cardIdx].green > player[current_player].card_green)
+		{
+			change_gold.green -= (card1[cardIdx].green - player[current_player].card_green);
+			if (change_gold.green < 0)
+			{
+				player[current_player].green += change_gold.green;
+				green -= change_gold.green;
+			}
+			else if (change_gold.green > 0)
+				use_gold += change_gold.green;
+		}
+		if (card1[cardIdx].purple > player[current_player].card_purple)
+		{
+			change_gold.purple -= (card1[cardIdx].purple - player[current_player].card_purple);
+			if (change_gold.purple < 0)
+			{
+				player[current_player].purple += change_gold.purple;
+				purple -= change_gold.purple;
+			}
+			else if (change_gold.purple > 0)
+				use_gold += change_gold.purple;
+		}
 
 		//카드 혜택 적용
 		if (!strcmp("blue", card1[cardIdx].value))		player[current_player].card_blue++;
@@ -804,12 +1430,70 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		// 뽑은 카드의 스코어만큼 점수 증가
 		player[current_player].score += card2[cardIdx].point;
 
+		/*
 		//가격만큼 보석 감소 <- *******예외처리해줘야됨*******
 		player[current_player].blue -= card2[cardIdx].blue;
 		player[current_player].green -= card2[cardIdx].green;
 		player[current_player].purple -= card2[cardIdx].purple;
 		player[current_player].red -= card2[cardIdx].red;
 		player[current_player].white -= card2[cardIdx].white;
+		*/
+
+		if (card2[cardIdx].white > player[current_player].card_white)
+		{
+			change_gold.white -= (card2[cardIdx].white - player[current_player].card_white);
+			if (change_gold.white < 0)
+			{
+				player[current_player].white += change_gold.white;
+				white -= change_gold.white;
+			}
+			else if (change_gold.white > 0)
+				use_gold += change_gold.white;
+		}
+		if (card2[cardIdx].blue > player[current_player].card_blue)
+		{
+			change_gold.blue -= (card2[cardIdx].blue - player[current_player].card_blue);
+			if (change_gold.blue < 0)
+			{
+				player[current_player].blue += change_gold.blue;
+				blue -= change_gold.blue;
+			}
+			else if (change_gold.blue > 0)
+				use_gold += change_gold.blue;
+		}
+		if (card2[cardIdx].red > player[current_player].card_red)
+		{
+			change_gold.red -= (card2[cardIdx].red - player[current_player].card_red);
+			if (change_gold.red < 0)
+			{
+				player[current_player].red += change_gold.red;
+				red -= change_gold.red;
+			}
+			else if (change_gold.red > 0)
+				use_gold += change_gold.red;
+		}
+		if (card2[cardIdx].green > player[current_player].card_green)
+		{
+			change_gold.green -= (card2[cardIdx].green - player[current_player].card_green);
+			if (change_gold.green < 0)
+			{
+				player[current_player].green += change_gold.green;
+				green -= change_gold.green;
+			}
+			else if (change_gold.green > 0)
+				use_gold += change_gold.green;
+		}
+		if (card2[cardIdx].purple > player[current_player].card_purple)
+		{
+			change_gold.purple -= (card2[cardIdx].purple - player[current_player].card_purple);
+			if (change_gold.purple < 0)
+			{
+				player[current_player].purple += change_gold.purple;
+				purple -= change_gold.purple;
+			}
+			else if (change_gold.purple > 0)
+				use_gold += change_gold.purple;
+		}
 
 		//카드 혜택 적용
 		if (!strcmp("blue", card2[cardIdx].value))		player[current_player].card_blue++;
@@ -821,7 +1505,7 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		//다음 카드를 보드에 놓기
 		board_card[step1 * 4 + step2] = dev_card2[drawn_cards[step1]];
 
-		if (!(drawn_cards[1] >= 30)) {
+		if (drawn_cards[1] < 30) {
 			//뽑은 카드 개수 증가
 			drawn_cards[step1]++;
 		}
@@ -830,12 +1514,71 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		// 뽑은 카드의 스코어만큼 점수 증가
 		player[current_player].score += card3[cardIdx].point;
 
+		/*
 		//가격만큼 보석 감소 <- *******예외처리해줘야됨*******
 		player[current_player].blue -= card3[cardIdx].blue;
 		player[current_player].green -= card3[cardIdx].green;
 		player[current_player].purple -= card3[cardIdx].purple;
 		player[current_player].red -= card3[cardIdx].red;
 		player[current_player].white -= card3[cardIdx].white;
+		*/
+
+
+		if (card3[cardIdx].white > player[current_player].card_white)
+		{
+			change_gold.white -= (card3[cardIdx].white - player[current_player].card_white);
+			if (change_gold.white < 0)
+			{
+				player[current_player].white += change_gold.white;
+				white -= change_gold.white;
+			}
+			else if (change_gold.white > 0)
+				use_gold += change_gold.white;
+		}
+		if (card3[cardIdx].blue > player[current_player].card_blue)
+		{
+			change_gold.blue -= (card3[cardIdx].blue - player[current_player].card_blue);
+			if (change_gold.blue < 0)
+			{
+				player[current_player].blue += change_gold.blue;
+				blue -= change_gold.blue;
+			}
+			else if (change_gold.blue > 0)
+				use_gold += change_gold.blue;
+		}
+		if (card3[cardIdx].red > player[current_player].card_red)
+		{
+			change_gold.red -= (card3[cardIdx].red - player[current_player].card_red);
+			if (change_gold.red < 0)
+			{
+				player[current_player].red += change_gold.red;
+				red -= change_gold.red;
+			}
+			else if (change_gold.red > 0)
+				use_gold += change_gold.red;
+		}
+		if (card3[cardIdx].green > player[current_player].card_green)
+		{
+			change_gold.green -= (card3[cardIdx].green - player[current_player].card_green);
+			if (change_gold.green < 0)
+			{
+				player[current_player].green += change_gold.green;
+				green -= change_gold.green;
+			}
+			else if (change_gold.green > 0)
+				use_gold += change_gold.green;
+		}
+		if (card3[cardIdx].purple > player[current_player].card_purple)
+		{
+			change_gold.purple -= (card3[cardIdx].purple - player[current_player].card_purple);
+			if (change_gold.purple < 0)
+			{
+				player[current_player].purple += change_gold.purple;
+				purple -= change_gold.purple;
+			}
+			else if (change_gold.purple > 0)
+				use_gold += change_gold.purple;
+		}
 
 		//카드 혜택 적용
 		if (!strcmp("blue", card3[cardIdx].value))		player[current_player].card_blue++;
@@ -852,6 +1595,136 @@ void get_card(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 			drawn_cards[step1]++;
 		}
 		break;
+
+	case 3:
+		// 뽑은 카드의 스코어만큼 점수 증가
+		player[current_player].score += keep_card[current_player][step2].point;
+
+		/*
+		//가격만큼 보석 감소 <- *******예외처리해줘야됨*******
+		player[current_player].blue -= keep_card[current_player][step2].blue;
+		player[current_player].green -= keep_card[current_player][step2].green;
+		player[current_player].purple -= keep_card[current_player][step2].purple;
+		player[current_player].red -= keep_card[current_player][step2].red;
+		player[current_player].white -= keep_card[current_player][step2].white;
+		*/
+
+
+		if (keep_card[current_player][step2].white > player[current_player].card_white)
+		{
+			change_gold.white -= (keep_card[current_player][step2].white - player[current_player].card_white);
+			if (change_gold.white < 0)
+			{
+				player[current_player].white += change_gold.white;
+				white -= change_gold.white;
+			}
+			else if (change_gold.white > 0)
+				use_gold += change_gold.white;
+		}
+		if (keep_card[current_player][step2].blue > player[current_player].card_blue)
+		{
+			change_gold.blue -= (keep_card[current_player][step2].blue - player[current_player].card_blue);
+			if (change_gold.blue < 0)
+			{
+				player[current_player].blue += change_gold.blue;
+				blue -= change_gold.blue;
+			}
+			else if (change_gold.blue > 0)
+				use_gold += change_gold.blue;
+		}
+		if (keep_card[current_player][step2].red > player[current_player].card_red)
+		{
+			change_gold.red -= (keep_card[current_player][step2].red - player[current_player].card_red);
+			if (change_gold.red < 0)
+			{
+				player[current_player].red += change_gold.red;
+				red -= change_gold.red;
+			}
+			else if (change_gold.red > 0)
+				use_gold += change_gold.red;
+		}
+		if (keep_card[current_player][step2].green > player[current_player].card_green)
+		{
+			change_gold.green -= (keep_card[current_player][step2].green - player[current_player].card_green);
+			if (change_gold.green < 0)
+			{
+				player[current_player].green += change_gold.green;
+				green -= change_gold.green;
+			}
+			else if (change_gold.green > 0)
+				use_gold += change_gold.green;
+		}
+		if (keep_card[current_player][step2].purple > player[current_player].card_purple)
+		{
+			change_gold.purple -= (keep_card[current_player][step2].purple - player[current_player].card_purple);
+			if (change_gold.purple < 0)
+			{
+				player[current_player].purple += change_gold.purple;
+				purple -= change_gold.purple;
+			}
+			else if (change_gold.purple > 0)
+				use_gold += change_gold.purple;
+		}
+
+		//카드 혜택 적용
+		if (!strcmp("blue", keep_card[current_player][step2].value))		player[current_player].card_blue++;
+		if (!strcmp("green", keep_card[current_player][step2].value))		player[current_player].card_green++;
+		if (!strcmp("purple", keep_card[current_player][step2].value))	player[current_player].card_purple++;
+		if (!strcmp("red", keep_card[current_player][step2].value))		player[current_player].card_red++;
+		if (!strcmp("white", keep_card[current_player][step2].value))		player[current_player].card_white++;
+
+		// 사용한 찜카드 비우기
+		keep_card[current_player][step2].point = 0;
+		strcpy(keep_card[current_player][step2].value, "");
+		keep_card[current_player][step2].white = 0;
+		keep_card[current_player][step2].blue = 0;
+		keep_card[current_player][step2].red = 0;
+		keep_card[current_player][step2].green = 0;
+		keep_card[current_player][step2].purple = 0;
+
+		//다음 카드를 보드에 놓기
+		switch (step2)
+		{
+		case 0:
+			if (keep_card[current_player][1].value[0] != '0')
+			{
+				keep_card[current_player][0] = keep_card[current_player][1];
+			}
+			if (keep_card[current_player][2].value[0] != '0')
+			{
+				keep_card[current_player][1] = keep_card[current_player][2];
+				keep_card[current_player][2].point = 0;
+				strcpy(keep_card[current_player][2].value, "");
+				keep_card[current_player][2].white = 0;
+				keep_card[current_player][2].blue = 0;
+				keep_card[current_player][2].red = 0;
+				keep_card[current_player][2].green = 0;
+				keep_card[current_player][2].purple = 0;
+			}
+			break;
+
+		case 1:
+			if (keep_card[current_player][2].value[0] != '0')
+			{
+				keep_card[current_player][1] = keep_card[current_player][2];
+				keep_card[current_player][2].point = 0;
+				strcpy(keep_card[current_player][2].value, "");
+				keep_card[current_player][2].white = 0;
+				keep_card[current_player][2].blue = 0;
+				keep_card[current_player][2].red = 0;
+				keep_card[current_player][2].green = 0;
+				keep_card[current_player][2].purple = 0;
+			}
+			break;
+		}
+		break;
+
+	}
+
+	if (use_gold <= num_gold) // 사용한 찜 토큰이 변환한 찜토큰보다 작을 때
+	{
+		player[current_player].gold -= num_gold - use_gold; // 변환한 찜토큰 중에 남은 토큰을 다시 찜토큰으로 돌려놈
+		gold += num_gold - use_gold; // 사용한 찜 토큰을 토큰창고에 넣어놈
 	}
 
 	/* 구현 완료 dev_card[40],[30],[20]을 추가해 0,0,0,0,0인 카드를 만들어서 카드를 다 뽑으면 출력하는 식으로 만듦
@@ -1230,7 +2103,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 	printf("                                                            │                                        ");
 	color(LIGHT_RED);
-	printf("┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐                    ");
+	printf(" 1────────┐  2────────┐  3────────┐  4────────┐  5────────┐                    ");
 	color(WHITE);
 	printf("│\n");
 
@@ -1409,7 +2282,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                                        │\n");
 
-		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		printf("             │  1───────────┐  2───────────┐  3───────────┐ │                   ");
 		color(LIGHT_GREEN);
 		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
 		color(WHITE);
@@ -1610,16 +2483,15 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                                        │\n");
 
-		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		printf("             │  1───────────┐  2───────────┐  3───────────┐ │                   ");
 		color(LIGHT_GREEN);
 		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │            │ │ %d        ", keep_card[current_player][0].point);
+		printf("             │ │ %d        ", keep_card[current_player][0].point);
 		print_jowel(keep_card[current_player][0].value);
-		color(WHITE);
-		printf("│ │                   ");
+		printf("│ │            │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(WHITE);
@@ -1667,7 +2539,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │            │ │ ● %d       │ │                   ", keep_card[current_player][0].white);
+		printf("             │ │ ● %d       │ │            │ │            │ │                   ", keep_card[current_player][0].white);
 		color(LIGHT_GREEN);
 		printf("│  남은 카드 │       │ ");
 		color(WHITE);
@@ -1693,11 +2565,11 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │            │ │ ");
+		printf("             │ │ ");
 		color(BLUE);
 		printf("● %d", keep_card[current_player][0].blue);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │            │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(BLUE);
@@ -1723,11 +2595,11 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │            │ │ ");
+		printf("             │ │ ");
 		color(RED);
 		printf("● %d", keep_card[current_player][0].red);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │            │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		if (card_size[0] >= 10)
 			printf("│     %d장   │       │ ", card_size[0]);
@@ -1756,11 +2628,11 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │            │ │ ");
+		printf("             │ │ ");
 		color(GREEN);
 		printf("● %d", keep_card[current_player][0].green);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │            │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(GREEN);
@@ -1786,11 +2658,11 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │            │ │ ");
+		printf("             │ │ ");
 		color(PURPLE);
 		printf("● %d", keep_card[current_player][0].purple);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │            │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(PURPLE);
@@ -1830,18 +2702,17 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                                        │\n");
 
-		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		printf("             │  1───────────┐  2───────────┐  3───────────┐ │                   ");
 		color(LIGHT_GREEN);
 		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │ %d        ", keep_card[current_player][1].point);
-		print_jowel(keep_card[current_player][1].value);
-		printf("│ │ %d        ", keep_card[current_player][0].point);
+		printf("             │ │ %d        ", keep_card[current_player][0].point);
 		print_jowel(keep_card[current_player][0].value);
-		color(WHITE);
-		printf("│ │                   ");
+		printf("│ │ %d        ", keep_card[current_player][1].point);
+		print_jowel(keep_card[current_player][1].value);
+		printf("│ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(WHITE);
@@ -1889,7 +2760,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │ ● %d       │ │ ● %d       │ │                   ", keep_card[current_player][1].white,keep_card[current_player][0].white);
+		printf("             │ │ ● %d       │ │ ● %d       │ │            │ │                   ", keep_card[current_player][0].white,keep_card[current_player][1].white);
 		color(LIGHT_GREEN);
 		printf("│  남은 카드 │       │ ");
 		color(WHITE);
@@ -1915,15 +2786,15 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │ ");
-		color(BLUE);
-		printf("● %d", keep_card[current_player][1].blue);
-		color(WHITE);
-		printf("       │ │ ");
+		printf("             │ │ ");
 		color(BLUE);
 		printf("● %d", keep_card[current_player][0].blue);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │ ");
+		color(BLUE);
+		printf("● %d", keep_card[current_player][1].blue);
+		color(WHITE);
+		printf("       │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(BLUE);
@@ -1949,15 +2820,15 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │ ");
-		color(RED);
-		printf("● %d", keep_card[current_player][1].red);
-		color(WHITE);
-		printf("       │ │ ");
+		printf("             │ │ ");
 		color(RED);
 		printf("● %d", keep_card[current_player][0].red);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │ ");
+		color(RED);
+		printf("● %d", keep_card[current_player][1].red);
+		color(WHITE);
+		printf("       │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		if (card_size[0] >= 10)
 			printf("│     %d장   │       │ ", card_size[0]);
@@ -1986,15 +2857,15 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │ ");
-		color(GREEN);
-		printf("● %d", keep_card[current_player][1].green);
-		color(WHITE);
-		printf("       │ │ ");
+		printf("             │ │ ");
 		color(GREEN);
 		printf("● %d", keep_card[current_player][0].green);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │ ");
+		color(GREEN);
+		printf("● %d", keep_card[current_player][1].green);
+		color(WHITE);
+		printf("       │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(GREEN);
@@ -2020,15 +2891,15 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │            │ │ ");
-		color(PURPLE);
-		printf("● %d", keep_card[current_player][1].purple);
-		color(WHITE);
-		printf("       │ │ ");
+		printf("             │ │ ");
 		color(PURPLE);
 		printf("● %d", keep_card[current_player][0].purple);
 		color(WHITE);
-		printf("       │ │                   ");
+		printf("       │ │ ");
+		color(PURPLE);
+		printf("● %d", keep_card[current_player][1].purple);
+		color(WHITE);
+		printf("       │ │            │ │                   ");
 		color(LIGHT_GREEN);
 		printf("│            │       │ ");
 		color(PURPLE);
@@ -2068,18 +2939,18 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                                        │\n");
 
-		printf("             │ ┌────────────┐ ┌────────────┐ ┌────────────┐ │                   ");
+		printf("             │  1───────────┐  2───────────┐  3───────────┐ │                   ");
 		color(LIGHT_GREEN);
 		printf("┌────────────┐        1───────────┐  2───────────┐  3───────────┐  4───────────┐ ");
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │ %d        ", keep_card[current_player][2].point);
-		print_jowel(keep_card[current_player][2].value);
+		printf("             │ │ %d        ", keep_card[current_player][0].point);
+		print_jowel(keep_card[current_player][0].value);
 		printf("│ │ %d        ", keep_card[current_player][1].point);
 		print_jowel(keep_card[current_player][1].value);
-		printf("│ │ %d        ", keep_card[current_player][0].point);
-		print_jowel(keep_card[current_player][0].value);
+		printf("│ │ %d        ", keep_card[current_player][2].point);
+		print_jowel(keep_card[current_player][2].value);
 		color(WHITE);
 		printf("│ │                   ");
 		color(LIGHT_GREEN);
@@ -2129,7 +3000,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("                   │\n");
 
-		printf("             │ │ ● %d       │ │ ● %d       │ │ ● %d       │ │                   ", keep_card[current_player][2].white, keep_card[current_player][1].white, keep_card[current_player][0].white);
+		printf("             │ │ ● %d       │ │ ● %d       │ │ ● %d       │ │                   ", keep_card[current_player][0].white, keep_card[current_player][1].white, keep_card[current_player][2].white);
 		color(LIGHT_GREEN);
 		printf("│  남은 카드 │       │ ");
 		color(WHITE);
@@ -2157,7 +3028,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		printf("             │ │ ");
 		color(BLUE);
-		printf("● %d", keep_card[current_player][2].blue);
+		printf("● %d", keep_card[current_player][0].blue);
 		color(WHITE);
 		printf("       │ │ ");
 		color(BLUE);
@@ -2165,7 +3036,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("       │ │ ");
 		color(BLUE);
-		printf("● %d", keep_card[current_player][0].blue);
+		printf("● %d", keep_card[current_player][2].blue);
 		color(WHITE);
 		printf("       │ │                   ");
 		color(LIGHT_GREEN);
@@ -2195,7 +3066,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		printf("             │ │ ");
 		color(RED);
-		printf("● %d", keep_card[current_player][2].red);
+		printf("● %d", keep_card[current_player][0].red);
 		color(WHITE);
 		printf("       │ │ ");
 		color(RED);
@@ -2203,7 +3074,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("       │ │ ");
 		color(RED);
-		printf("● %d", keep_card[current_player][0].red);
+		printf("● %d", keep_card[current_player][2].red);
 		color(WHITE);
 		printf("       │ │                   ");
 		color(LIGHT_GREEN);
@@ -2236,7 +3107,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		printf("             │ │ ");
 		color(GREEN);
-		printf("● %d", keep_card[current_player][2].green);
+		printf("● %d", keep_card[current_player][0].green);
 		color(WHITE);
 		printf("       │ │ ");
 		color(GREEN);
@@ -2244,7 +3115,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("       │ │ ");
 		color(GREEN);
-		printf("● %d", keep_card[current_player][0].green);
+		printf("● %d", keep_card[current_player][2].green);
 		color(WHITE);
 		printf("       │ │                   ");
 		color(LIGHT_GREEN);
@@ -2274,7 +3145,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 
 		printf("             │ │ ");
 		color(PURPLE);
-		printf("● %d", keep_card[current_player][2].purple);
+		printf("● %d", keep_card[current_player][0].purple);
 		color(WHITE);
 		printf("       │ │ ");
 		color(PURPLE);
@@ -2282,7 +3153,7 @@ void boardpan(int nob_card[], int dev_card1[], int dev_card2[], int dev_card3[],
 		color(WHITE);
 		printf("       │ │ ");
 		color(PURPLE);
-		printf("● %d", keep_card[current_player][0].purple);
+		printf("● %d", keep_card[current_player][2].purple);
 		color(WHITE);
 		printf("       │ │                   ");
 		color(LIGHT_GREEN);
@@ -3065,4 +3936,44 @@ void print_jowel(char jowel[]) // 카드 보석 토큰 출력
 	}
 
 	color(WHITE);
+}
+
+int check_winner(void) // 우승자 판단 함수
+{
+	int win_player[4] = { 0 }; // win_player[4] : 점수가 가장 높은 플레이어가 누구인지 저장, 만약 동점자가 있을 떄 win_player[0]에 선 플레이어, win_player[1]에 후 플레이어 이런식으로 뒤로 갈수록 후 플레이어
+	int high_score = 0, num = 0; // high_score : 우승자의 점수 (점수 중 최고점), num : 동점자의 수 - 1
+	int win_card = 90, win_who = 0; // win_card : 동점자가 있을 때 개발카드의 수가 적은 카드의 수, win_who : 최종적으로 누가 이겼는지 판단
+
+	for (int x = 0; x < 4; x++) // 누가 점수가 가장 높는지 확인
+	{
+		if (player[x].score > high_score)
+		{
+			num = 0;
+			high_score = player[x].score;
+			win_player[num] = x;
+		}
+		else if (player[x].score == high_score) // 동점자가 있을 때 아래 for문을 통해 우승자 판단
+		{
+			num++;
+			win_player[num] = x;
+		}
+	}
+
+	if (num > 0) // 동점자가 있을 때
+	{
+		for (int y = 0; y < num + 1; y++) // 개발카드의 수가 적은 사람이 우승, 만약 개발카드의 수도 같다면 후플레이어가 우승
+		{
+			if ((player[win_player[y]].card_white + player[win_player[y]].card_blue + player[win_player[y]].card_red + player[win_player[y]].card_green + player[win_player[y]].card_purple) <= win_card)
+			{
+				win_who = win_player[y];
+				win_card = (player[win_player[y]].card_white + player[win_player[y]].card_blue + player[win_player[y]].card_red + player[win_player[y]].card_green + player[win_player[y]].card_purple);
+			}
+		}
+	}
+	else if (num == 0) // 동점자가 없을 때
+	{
+		win_who = win_player[num];
+	}
+
+	return win_who; // 우승자가 누구인지 반환
 }
