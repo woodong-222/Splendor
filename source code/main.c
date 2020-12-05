@@ -664,7 +664,7 @@ _start: // goto _start; 의 도착지점
 		system("cls");
 		boardpan(nob_card, dev_card1, dev_card2, dev_card3, board_card);
 		printf("                                                            ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n");
-		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", 1);
+		printf("                                                            │ player%d의 차례입니다.                                                                                                 │\n", current_player + 1);
 		printf("                                                            │ 선택한 토큰이 부족합니다.                                                                                             │\n");
 		printf("                                                            │ 다시 토큰을 입력하세요.                                                                                               │\n");
 		printf("                                                            │                                                                                                                       │\n");
