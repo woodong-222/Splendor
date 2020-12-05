@@ -384,6 +384,11 @@ _start: // goto _start; 의 도착지점
 		}
 	}
 
+	if (((white > 0) + (blue > 0) + (red > 0) + (green > 0) + (purple > 0)) == 1)
+	{
+		token = 1;
+	}
+
 	if (w == 1 || b == 1 || r == 1 || gr == 1 || pu == 1) // 처음 입력 받은 토큰 출력
 	{
 		system("cls");
